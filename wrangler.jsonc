@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kofifshang-dev",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-16",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "send_email": [
+    { "name": "CONTACT_EMAIL", "destination_address": "kofifshang@gmail.com" }
+  ],
+  "vars": {
+    "FROM_ADDRESS": "form@kofifshang.dev",
+    "TO_ADDRESS": "kofifshang@gmail.com"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

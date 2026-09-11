@@ -2,30 +2,43 @@
 
 Personal site for Kofi Shang / Shangko Co, live at **https://kofifshang.dev**.
 
-Hosted on **Cloudflare Workers** (static assets). Every push to `main` redeploys automatically.
+Hosted on **Cloudflare Workers**. Every push to `main` redeploys automatically.
 
 ```
-index.html     homepage            -> https://kofifshang.dev/
-start.html     Start a project     -> https://kofifshang.dev/start
-support.js     Claude Design runtime that renders both pages
-*.png, *.jpg   images the pages load
-assets/        favicon and link-preview image
+public/            everything visitors can load
+  index.html       homepage                 /
+  start.html       Start a project          /start
+  support.js       Claude Design runtime that renders both pages
+  assets/          favicon and link-preview image
+src/worker.js      handles POST /api/contact and emails the brief
+wrangler.jsonc     Worker name, asset folder, email binding
 ```
 
-## How the pages work
+Only `public/` is served. The Worker code, config and this README are not reachable on the site.
 
-Both pages are Claude Design components (`.dc.html` format) served as-is. Each loads `support.js`, which renders the page in the browser. The same runtime powers the Juicicora site.
+## How the Start a project form works
 
-Cloudflare serves `start.html` at the clean URL `/start`, so links between pages use `/` and `/start`.
+1. The page posts the brief as JSON to `/api/contact`.
+2. The Worker rejects cross-site posts, oversized bodies, missing fields and malformed email addresses.
+3. It quietly drops likely bots: anything that fills the hidden `website` field, or submits within 2.5 seconds of the page opening.
+4. It emails the brief through **Cloudflare Email Routing**, from `form@kofifshang.dev` to `kofifshang@gmail.com`. Reply-To is the visitor's address, so hitting reply answers them.
 
-The Start a project form sends nothing over the network. Submitting opens a pre-filled email to kofifshang@gmail.com, or copies the brief to the clipboard.
+The email binding can only ever deliver to that one verified address, so the form can't be abused to email anyone else.
+
+## One-time setup (Cloudflare dashboard)
+
+1. **Email > Email Routing** on kofifshang.dev: enable it and accept the DNS records it adds.
+2. **Destination addresses**: add `kofifshang@gmail.com`, then click the verification link Cloudflare emails you.
+
+Until both are done, submissions fail and the form shows the email address as a fallback.
 
 ## Updating the site
 
-1. In Claude Design, export `Site.dc.html` and `StartAProject.dc.html`.
-2. Save them as `index.html` and `start.html`.
-3. Point links at the live URLs: `StartAProject.dc.html` becomes `/start`, and `Site.dc.html` becomes `/`.
-4. Re-add the `<title>` and link-preview tags in `<head>`. Exports don't carry them.
-5. Commit and push to `main`.
+1. Export `Site.dc.html` from Claude Design and save it as `public/index.html`.
+2. Point its `StartAProject.dc.html` links at `/start`.
+3. Re-add the `<title>` and link-preview tags in `<head>`. Exports don't carry them.
+4. Commit and push to `main`.
 
-Never commit the project's `uploads/` folder. It holds working files, including a resume with a phone number.
+**Careful with `start.html`.** A fresh export of `StartAProject.dc.html` brings back the old open-your-email-app logic. Keep the logic in `public/start.html`, or re-apply it after exporting.
+
+Never commit the Claude Design project's `uploads/` folder. It holds working files, including a resume with a phone number.

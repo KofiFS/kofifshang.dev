@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Start a project — Kofi Shang</title>
-<meta name="description" content="Tell Kofi Shang what you are building. A short brief opens as a pre-filled email: contract engineering, game development, AI products or a full-time role.">
+<meta name="description" content="Tell Kofi Shang what you are building. Your brief goes straight to his inbox: contract engineering, game development, AI products or a full-time role.">
 <link rel="canonical" href="https://kofifshang.dev/start">
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kofi Shang">
 <meta property="og:title" content="Start a project — Kofi Shang">
-<meta property="og:description" content="Tell Kofi Shang what you are building. A short brief opens as a pre-filled email: contract engineering, game development, AI products or a full-time role.">
+<meta property="og:description" content="Tell Kofi Shang what you are building. Your brief goes straight to his inbox: contract engineering, game development, AI products or a full-time role.">
 <meta property="og:url" content="https://kofifshang.dev/start">
 <meta property="og:image" content="https://kofifshang.dev/assets/portrait.jpg">
 <meta name="twitter:card" content="summary">
@@ -78,20 +78,23 @@
 
       <div style="background: #111117; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: clamp(24px, 3vw, 38px)">
         <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-          <div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start">
-            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8993FF">Your mail client is open</span>
-            <h2 style="font-size: 28px; line-height: 1.16">Send it and it lands with me.</h2>
-            <p style="font-size: 15px; line-height: 1.66; color: rgba(242,239,232,0.66)">A pre-filled message to kofifshang@gmail.com should have opened in your email app. If nothing happened, copy the brief below and send it yourself — same result.</p>
-            <div style="width: 100%; background: #0C0C0E; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 18px; font-size: 13px; line-height: 1.6; color: rgba(242,239,232,0.7); white-space: pre-wrap; max-height: 280px; overflow-y: auto">{{ preview }}</div>
+          <div role="status" aria-live="polite" style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start">
+            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8993FF">Message sent</span>
+            <h2 style="font-size: 28px; line-height: 1.16">{{ sentTitle }}</h2>
+            <p style="font-size: 15px; line-height: 1.66; color: rgba(242,239,232,0.66)">I read every enquiry myself and reply within two business days, including the honest no. My reply comes from kofifshang@gmail.com, so check your spam folder if you don't see it.</p>
             <div style="display: flex; flex-wrap: wrap; gap: 10px">
-              <button onClick="{{ copy }}" style="font-size: 14px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; border: 0; border-radius: 8px; padding: 14px 24px; white-space: nowrap" style-hover="background: #3A49E0">{{ copyLabel }}</button>
-              <button onClick="{{ reset }}" style="font-size: 14px; color: #F2EFE8; background: transparent; border: 1px solid rgba(242,239,232,0.26); border-radius: 8px; padding: 13px 20px; white-space: nowrap" style-hover="border-color: rgba(242,239,232,0.6)">Edit the brief</button>
+              <a href="/" style="font-size: 14px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; border-radius: 8px; padding: 14px 24px; white-space: nowrap" style-hover="background: #3A49E0">Back to the site</a>
+              <button onClick="{{ reset }}" style="font-size: 14px; color: #F2EFE8; background: transparent; border: 1px solid rgba(242,239,232,0.26); border-radius: 8px; padding: 13px 20px; white-space: nowrap" style-hover="border-color: rgba(242,239,232,0.6)">Send another</button>
             </div>
           </div>
         </sc-if>
 
         <sc-if value="{{ editing }}" hint-placeholder-val="{{ true }}">
           <div style="display: flex; flex-direction: column; gap: 22px">
+              <label aria-hidden="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden">
+                <span>Leave this field empty</span>
+                <input value="{{ hp }}" onChange="{{ setHp }}" name="website" tabindex="-1" autocomplete="off">
+              </label>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
               <label style="display: flex; flex-direction: column; gap: 8px">
@@ -135,8 +138,8 @@
             </label>
 
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 2px">
-              <button onClick="{{ submit }}" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; border: 0; border-radius: 8px; padding: 16px 28px; white-space: nowrap" style-hover="background: #3A49E0">Send to Kofi</button>
-              <span style="font-size: 13px; line-height: 1.55; color: {{ hintColor }}">{{ hint }}</span>
+              <button onClick="{{ submit }}" disabled="{{ sending }}" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: {{ submitBg }}; border: 0; border-radius: 8px; padding: 16px 28px; white-space: nowrap" style-hover="background: #3A49E0">{{ submitLabel }}</button>
+              <span role="status" aria-live="polite" style="font-size: 13px; line-height: 1.55; color: {{ hintColor }}">{{ hint }}</span>
             </div>
 
           </div>
@@ -169,61 +172,60 @@ const KINDS = [
 ];
 
 const TO = 'kofifshang@gmail.com';
+const EMPTY = { name: '', email: '', company: '', kind: '', timeline: '', budget: '', detail: '' };
+const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 class Component extends DCLogic {
-  state = {
-    f: { name: '', email: '', company: '', kind: '', timeline: '', budget: '', detail: '' },
-    sent: false, error: '', copied: false
-  };
+  state = { f: Object.assign({}, EMPTY), hp: '', sending: false, sent: false, error: '' };
+
+  // When the page opened; the server ignores briefs filled in implausibly fast.
+  t0 = Date.now();
 
   setField = (k, v) => this.setState(s => ({ f: Object.assign({}, s.f, { [k]: v }), error: '' }));
 
-  body() {
-    const f = this.state.f;
-    const line = (k, v) => v ? k + ': ' + v + '\n' : '';
-    return 'New project enquiry from kofifshang.dev\n\n'
-      + line('Name', f.name)
-      + line('Email', f.email)
-      + line('Company / project', f.company)
-      + line('Kind of work', f.kind)
-      + line('Timeline', f.timeline)
-      + line('Budget range', f.budget)
-      + '\nThe problem\n-----------\n' + (f.detail || '');
-  }
-
-  subject() {
-    const f = this.state.f;
-    const who = f.company || f.name || 'New enquiry';
-    return 'Project enquiry — ' + who + (f.kind ? ' · ' + f.kind : '');
-  }
-
-  submit = () => {
+  submit = async () => {
+    if (this.state.sending) return;
     const f = this.state.f;
     if (!f.name.trim() || !f.email.trim() || !f.detail.trim()) {
       this.setState({ error: 'Name, email and a description of the problem, please — the rest is optional.' });
       return;
     }
-    const href = 'mailto:' + TO + '?subject=' + encodeURIComponent(this.subject()) + '&body=' + encodeURIComponent(this.body());
-    this.setState({ sent: true, copied: false });
-    try { window.location.href = href; } catch (e) {}
-  };
-
-  copy = () => {
-    const text = 'To: ' + TO + '\nSubject: ' + this.subject() + '\n\n' + this.body();
-    const done = () => { this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 2200); };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, () => {});
+    if (!EMAIL_OK.test(f.email.trim())) {
+      this.setState({ error: 'That email address does not look right.' });
+      return;
+    }
+    this.setState({ sending: true, error: '' });
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.assign({}, f, { website: this.state.hp, elapsed: Date.now() - this.t0 }))
+      });
+      let data = {};
+      try { data = await res.json(); } catch (e) {}
+      if (res.ok && data.ok) {
+        this.setState({ sending: false, sent: true });
+      } else {
+        const why = data && data.error ? data.error + ' ' : 'Something went wrong on my end. ';
+        this.setState({ sending: false, error: why + 'You can also write to ' + TO + '.' });
+      }
+    } catch (e) {
+      this.setState({ sending: false, error: 'Could not reach the server. Check your connection, or write to ' + TO + '.' });
     }
   };
 
-  reset = () => this.setState({ sent: false, copied: false });
+  reset = () => this.setState({ sent: false, error: '', f: Object.assign({}, EMPTY) });
 
   renderVals() {
-    const { f, sent, error, copied } = this.state;
+    const { f, sent, sending, error, hp } = this.state;
+    const first = (f.name || '').trim().split(' ')[0];
     return {
       f,
       sent,
       editing: !sent,
+      sending,
+      hp,
+      setHp: e => this.setState({ hp: e.target.value }),
       set: {
         name: e => this.setField('name', e.target.value),
         email: e => this.setField('email', e.target.value),
@@ -243,12 +245,12 @@ class Component extends DCLogic {
         };
       }),
       submit: this.submit,
-      copy: this.copy,
       reset: this.reset,
-      copyLabel: copied ? 'Copied to clipboard' : 'Copy the brief instead',
-      hint: error || 'Opens a pre-filled email to ' + TO + '.',
-      hintColor: error ? '#FF9A8B' : 'rgba(242,239,232,0.5)',
-      preview: 'To: ' + TO + '\nSubject: ' + this.subject() + '\n\n' + this.body()
+      submitLabel: sending ? 'Sending…' : 'Send to Kofi',
+      submitBg: sending ? '#2F3AA8' : '#4A5BFF',
+      sentTitle: first ? 'Thanks, ' + first + '. It is in my inbox.' : 'Thanks. It is in my inbox.',
+      hint: error || 'Goes straight to my inbox. No email app needed.',
+      hintColor: error ? '#FF9A8B' : 'rgba(242,239,232,0.5)'
     };
   }
 }
