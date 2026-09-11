@@ -1,49 +1,31 @@
 # kofifshang.dev
 
-Personal site for Kofi Shang / Shangko Co. Served by GitHub Pages at **https://kofifshang.dev**.
+Personal site for Kofi Shang / Shangko Co, live at **https://kofifshang.dev**.
+
+Hosted on **Cloudflare Workers** (static assets). Every push to `main` redeploys automatically.
 
 ```
-index.html     the whole site (a self-contained Claude Design export)
-CNAME          tells GitHub Pages which custom domain to serve
-.nojekyll      skip Jekyll processing; serve files as-is
+index.html     homepage            -> https://kofifshang.dev/
+start.html     Start a project     -> https://kofifshang.dev/start
+support.js     Claude Design runtime that renders both pages
+*.png, *.jpg   images the pages load
 assets/        favicon and link-preview image
 ```
 
-## How the page works
+## How the pages work
 
-`index.html` is a single bundled page exported from Claude Design. It carries its own images, fonts reference, and React runtime inline, then unpacks itself with JavaScript on load. Nothing is fetched from a CDN at runtime except Google Fonts.
+Both pages are Claude Design components (`.dc.html` format) served as-is. Each loads `support.js`, which renders the page in the browser. The same runtime powers the Juicicora site.
 
-The outer `<head>` holds the title, description, and Open Graph tags. Link-preview crawlers (LinkedIn, Slack, iMessage) do not run JavaScript, so those tags must live there rather than inside the bundle.
+Cloudflare serves `start.html` at the clean URL `/start`, so links between pages use `/` and `/start`.
+
+The Start a project form sends nothing over the network. Submitting opens a pre-filled email to kofifshang@gmail.com, or copies the brief to the clipboard.
 
 ## Updating the site
 
-1. Export the new version from Claude Design.
-2. Replace `index.html` with it.
-3. Re-add the outer `<head>` tags. A fresh export resets them to a generic "Bundled Page" title.
-4. Commit and push to `main`. Pages redeploys in about a minute.
+1. In Claude Design, export `Site.dc.html` and `StartAProject.dc.html`.
+2. Save them as `index.html` and `start.html`.
+3. Point links at the live URLs: `StartAProject.dc.html` becomes `/start`, and `Site.dc.html` becomes `/`.
+4. Re-add the `<title>` and link-preview tags in `<head>`. Exports don't carry them.
+5. Commit and push to `main`.
 
-Never delete `CNAME`. Removing it detaches the custom domain.
-
-## DNS (Cloudflare)
-
-The domain's nameservers are on Cloudflare. Add these records in **Cloudflare → kofifshang.dev → DNS → Records**, each with the proxy set to **DNS only** (grey cloud):
-
-| Type  | Name  | Content                |
-|-------|-------|------------------------|
-| A     | `@`   | `185.199.108.153`      |
-| A     | `@`   | `185.199.109.153`      |
-| A     | `@`   | `185.199.110.153`      |
-| A     | `@`   | `185.199.111.153`      |
-| AAAA  | `@`   | `2606:50c0:8000::153`  |
-| AAAA  | `@`   | `2606:50c0:8001::153`  |
-| AAAA  | `@`   | `2606:50c0:8002::153`  |
-| AAAA  | `@`   | `2606:50c0:8003::153`  |
-| CNAME | `www` | `kofifs.github.io`     |
-
-**Why DNS only:** GitHub issues the HTTPS certificate itself. With Cloudflare's orange-cloud proxy on, GitHub can't complete that check and the certificate never arrives.
-
-**Why HTTPS matters here:** every `.dev` domain is on the browser HSTS preload list, so browsers refuse plain HTTP outright. The site will not load at all until the certificate exists. After DNS propagates, open the repo's **Settings → Pages** and tick **Enforce HTTPS** once it becomes available.
-
-## Protect the domain
-
-In **GitHub → Settings (account) → Pages → Add a domain**, verify `kofifshang.dev`. GitHub gives you one TXT record to add in Cloudflare. That stops anyone else's repository from claiming your domain.
+Never commit the project's `uploads/` folder. It holds working files, including a resume with a phone number.
