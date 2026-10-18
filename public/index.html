@@ -1,733 +1,384 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Kofi Shang — Shangko Co</title>
-<meta name="description" content="Senior backend and platform engineer with ten-plus years on load-bearing systems, and a studio that ships finished games and AI products. Contract engineering through Shangko Co.">
-<link rel="canonical" href="https://kofifshang.dev/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kofi Shang — games, tools and systems</title>
+<meta name="description" content="Kofi Shang builds and publishes games on Steam under Shangko Co, and writes the software around them. Clutch, a free open-source game clip recorder, plus ten released titles.">
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
+<link rel="canonical" href="https://kofifshang.dev/">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kofi Shang">
-<meta property="og:title" content="Kofi Shang — Shangko Co">
-<meta property="og:description" content="Senior backend and platform engineer with ten-plus years on load-bearing systems, and a studio that ships finished games and AI products. Contract engineering through Shangko Co.">
+<meta property="og:title" content="Kofi Shang — games, tools and systems">
+<meta property="og:description" content="Ten games on Steam and the software around them. Clutch, a free open-source clip recorder, is out now.">
 <meta property="og:url" content="https://kofifshang.dev/">
 <meta property="og:image" content="https://kofifshang.dev/assets/portrait.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0C0C0E">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { margin: 0; background: #0C0C0E; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-    * { box-sizing: border-box; }
-    a { color: #8993FF; text-decoration: none; }
-    a:hover { color: #B4BBFF; }
-    p { margin: 0; text-wrap: pretty; }
-    h1, h2, h3, h4 { margin: 0; font-family: 'Zen Old Mincho', Georgia, 'Times New Roman', serif; font-weight: 400; }
-    button { font-family: inherit; cursor: pointer; }
-    :focus-visible { outline: 2px solid #4A5BFF; outline-offset: 3px; }
-    ::selection { background: rgba(74,91,255,0.35); }
-    @keyframes pulseRing { 0% { transform: scale(0.9); opacity: 0.55 } 70% { transform: scale(1.5); opacity: 0 } 100% { transform: scale(1.5); opacity: 0 } }
-    @keyframes driftIn { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
-  </style>
-</helmet>
+<meta name="theme-color" content="#0A0A0C">
 
-<div style="width: 100%; max-width: 100%; background: #0C0C0E; color: #F2EFE8; overflow-x: hidden">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 
-  <!-- NAV -->
-  <div style="position: sticky; top: 0; z-index: 40; background: rgba(12,12,14,0.86); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(242,239,232,0.10)">
-    <div style="max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 18px clamp(20px, 5vw, 96px)">
-      <a href="#top" style="display: flex; align-items: center; gap: 13px; color: inherit">
-        <img src="logo-white.png" alt="Shangko mark" style="width: 32px; height: 32px; display: block">
-        <span style="display: flex; flex-direction: column; gap: 1px">
-          <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 17px; letter-spacing: 0.04em; color: #F2EFE8">Kofi Shang</span>
-          <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.56)">Shangko Co</span>
-        </span>
-      </a>
-      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: clamp(14px, 2.4vw, 34px)">
-        <a href="#trace" style="font-size: 13px; letter-spacing: 0.06em; color: rgba(242,239,232,0.66); padding: 12px 0" style-hover="color: #F2EFE8">How I build</a>
-        <a href="#work" style="font-size: 13px; letter-spacing: 0.06em; color: rgba(242,239,232,0.66); padding: 12px 0" style-hover="color: #F2EFE8">Work</a>
-        <a href="#background" style="font-size: 13px; letter-spacing: 0.06em; color: rgba(242,239,232,0.66); padding: 12px 0" style-hover="color: #F2EFE8">Background</a>
-        <a href="/start" style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: #F2EFE8; border: 1px solid rgba(74,91,255,0.7); padding: 12px 20px; border-radius: 8px; white-space: nowrap" style-hover="background: rgba(74,91,255,0.16); border-color: #4A5BFF">Start a project</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <div id="top" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(242,239,232,0.10)">
-    <div style="position: absolute; inset: 0; background: radial-gradient(900px 520px at 78% 8%, rgba(74,91,255,0.16) 0%, rgba(74,91,255,0) 70%); pointer-events: none"></div>
-    <img src="logo-white.png" alt="" style="position: absolute; top: -90px; right: -120px; width: clamp(320px, 44vw, 640px); height: clamp(320px, 44vw, 640px); opacity: 0.05; pointer-events: none">
-    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 116px) clamp(20px, 5vw, 96px) clamp(56px, 7vw, 100px)">
-      <div style="display: flex; flex-direction: column; gap: clamp(24px, 3vw, 34px); max-width: 940px">
-        <div style="display: flex; align-items: center; gap: 14px">
-          <span style="width: 46px; height: 1px; background: linear-gradient(90deg, rgba(74,91,255,0) 0%, #4A5BFF 100%); display: block"></span>
-          <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8993FF">Contract engineering &amp; game development</span>
-        </div>
-        <h1 style="font-size: clamp(38px, 6.4vw, 82px); line-height: 1.06; letter-spacing: -0.015em; color: #F2EFE8; max-width: 900px">Production systems that hold,<br>and games that actually<br>reach the store.</h1>
-        <p style="font-size: clamp(17px, 1.5vw, 20px); line-height: 1.62; color: rgba(242,239,232,0.68); max-width: 660px">I am Kofi Shang — a senior backend and platform engineer with ten-plus years on other people's load-bearing systems: payments, energy analytics, spatial data, federal statistics. On my own time I run a studio that ships finished games and AI products with live billing.</p>
-        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px; padding-top: 6px">
-          <a href="/start" style="font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: #FFFFFF; background: #4A5BFF; padding: 17px 32px; border-radius: 8px" style-hover="background: #3A49E0">Start a project</a>
-          <a href="#work" style="font-size: 15px; letter-spacing: 0.02em; color: #F2EFE8; border: 1px solid rgba(242,239,232,0.26); padding: 16px 30px; border-radius: 8px" style-hover="border-color: rgba(242,239,232,0.6)">Read a case study</a>
-          <span style="display: flex; align-items: center; gap: 9px; font-size: 13px; color: rgba(242,239,232,0.6); padding-left: 6px">
-            <span style="position: relative; width: 8px; height: 8px; display: block">
-              <span style="position: absolute; inset: 0; border-radius: 50%; background: #6BE39A"></span>
-              <span style="position: absolute; inset: -4px; border-radius: 50%; border: 1px solid #6BE39A; animation: pulseRing 2.4s ease-out infinite"></span>
-            </span>
-            Taking contracts for Q4 2026
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROOF -->
-  <div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-bottom: 1px solid rgba(242,239,232,0.10)">
-    <div style="display: flex; flex-direction: column; gap: 8px; padding: 30px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,0.08)">
-      <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: clamp(26px, 2.4vw, 32px); color: #F2EFE8">10+ years</span>
-      <span style="font-size: 13px; line-height: 1.5; color: rgba(242,239,232,0.6)">Backend and platform engineering</span>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 8px; padding: 30px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,0.08)">
-      <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: clamp(26px, 2.4vw, 32px); color: #F2EFE8">500GB+</span>
-      <span style="font-size: 13px; line-height: 1.5; color: rgba(242,239,232,0.6)">Energy data moved per ETL cycle</span>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 8px; padding: 30px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,0.08)">
-      <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: clamp(26px, 2.4vw, 32px); color: #F2EFE8">Federal</span>
-      <span style="font-size: 13px; line-height: 1.5; color: rgba(242,239,232,0.6)">U.S. Census Bureau subcontract, Title 13</span>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 8px; padding: 30px clamp(20px, 3vw, 40px)">
-      <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: clamp(26px, 2.4vw, 32px); color: #F2EFE8">7 clients</span>
-      <span style="font-size: 13px; line-height: 1.5; color: rgba(242,239,232,0.6)">Contracted Unreal engagements, 5.0 on the last three</span>
-    </div>
-  </div>
-
-  <!-- TRACE — interactive showpiece -->
-  <div id="trace" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(242,239,232,0.10)">
-    <div style="position: absolute; inset: 0; background: radial-gradient(700px 400px at 20% 100%, rgba(74,91,255,0.10) 0%, rgba(74,91,255,0) 70%); pointer-events: none"></div>
-    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 96px)">
-      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 40px">
-        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 660px">
-          <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8993FF">How I build</span>
-          <h2 style="font-size: clamp(30px, 3.6vw, 48px); line-height: 1.12; letter-spacing: -0.012em; color: #F2EFE8">The shape of every system I have shipped for a client.</h2>
-          <p style="font-size: 16px; line-height: 1.66; color: rgba(242,239,232,0.66)">Payment workflows at TreviPay, energy analytics at MCG, spatial data services for the Census Bureau through Spatial Front, the operator platform at Shielda — different domains, same skeleton. An authenticated edge, a thin service layer, a cache that carries the common case, and a database that only sees what it must. Send a request and watch where the milliseconds go.</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px">
-          <button onClick="{{ send }}" style="font-size: 14px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; border: 0; padding: 15px 26px; border-radius: 8px; white-space: nowrap" style-hover="background: #3A49E0">{{ sendLabel }}</button>
-          <button onClick="{{ toggleWarm }}" style="font-size: 14px; color: #F2EFE8; background: transparent; border: 1px solid rgba(242,239,232,0.26); padding: 14px 22px; border-radius: 8px; white-space: nowrap" style-hover="border-color: rgba(242,239,232,0.6)">{{ warmLabel }}</button>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px">
-        <sc-for list="{{ stages }}" as="st" hint-placeholder-count="6">
-          <div style="position: relative; overflow: hidden; background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 20px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-height: 128px">
-            <div style="position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 0%, rgba(74,91,255,0.30) 0%, rgba(74,91,255,0) 70%); opacity: {{ st.glow }}; transition: opacity 220ms ease; pointer-events: none"></div>
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #4A5BFF; opacity: {{ st.bar }}; transition: opacity 220ms ease"></div>
-            <span style="position: relative; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.5)">{{ st.step }}</span>
-            <span style="position: relative; font-family: 'Zen Old Mincho', Georgia, serif; font-size: 19px; line-height: 1.2; color: #F2EFE8; opacity: {{ st.dim }}">{{ st.label }}</span>
-            <span style="position: relative; font-size: 12px; line-height: 1.5; color: rgba(242,239,232,0.56); opacity: {{ st.dim }}">{{ st.sub }}</span>
-            <span style="position: relative; margin-top: auto; font-size: 13px; letter-spacing: 0.04em; color: {{ st.msColor }}">{{ st.msText }}</span>
-          </div>
-        </sc-for>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px">
-        <div style="background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 22px 20px; display: flex; flex-direction: column; gap: 8px">
-          <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.5)">Where this came from</span>
-          <p style="font-size: 13px; line-height: 1.62; color: rgba(242,239,232,0.66)">A cache hit is not an optimisation you add later — it is the design. Built this way, MCG's energy platform held 99.95% uptime, Valve's internal tooling served 10,000+ people a day, and API response times there came down 35%.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <div id="services" style="background: #F2EFE8; color: #14141A">
-    <div style="max-width: 1440px; margin: 0 auto; padding: clamp(56px, 7vw, 100px) clamp(20px, 5vw, 96px)">
-      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px; margin-bottom: 56px">
-        <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #3A3AC8">What I take on</span>
-        <h2 style="font-size: clamp(30px, 3.6vw, 48px); line-height: 1.12; letter-spacing: -0.012em; color: #14141A">Three kinds of work, one person accountable for the result.</h2>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(288px, 1fr)); gap: 26px">
-        <div style="display: flex; flex-direction: column; gap: 18px; background: #FFFFFF; border-top: 3px solid #14141A; border-radius: 0 0 8px 8px; padding: 34px 30px 36px">
-          <span style="font-size: 11px; letter-spacing: 0.2em; color: rgba(20,20,26,0.42)">01</span>
-          <h3 style="font-size: 26px; line-height: 1.2; color: #14141A">Backend &amp; platform engineering</h3>
-          <p style="font-size: 15px; line-height: 1.68; color: rgba(20,20,26,0.72)">APIs and services that hold up under real load. Microservice boundaries and API contracts, schema and data modeling, ETL pipelines, cloud deployment on Azure and AWS, and enough observability to actually debug the thing at three in the morning. When the work runs full stack, the operator interface on top of it is mine too — React and TypeScript through to the service behind it.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px">
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Python</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">React · TypeScript</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">.NET</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Node · TypeScript</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">PostgreSQL</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Kubernetes</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Azure · AWS</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 18px; background: #FFFFFF; border-top: 3px solid #4A5BFF; border-radius: 0 0 8px 8px; padding: 34px 30px 36px">
-          <span style="font-size: 11px; letter-spacing: 0.2em; color: rgba(20,20,26,0.42)">02</span>
-          <h3 style="font-size: 26px; line-height: 1.2; color: #14141A">Game development &amp; release</h3>
-          <p style="font-size: 15px; line-height: 1.68; color: rgba(20,20,26,0.72)">Prototype through store page. Unreal Engine 5 and Godot gameplay programming, web and Electron builds, networked multiplayer, and the unglamorous release work: Steamworks integration, achievements, leaderboards, cloud saves, depot uploads and a demo build that installs cleanly.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px">
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Unreal Engine 5</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">C++</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Godot</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Electron</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Steamworks</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 18px; background: #FFFFFF; border-top: 3px solid #14141A; border-radius: 0 0 8px 8px; padding: 34px 30px 36px">
-          <span style="font-size: 11px; letter-spacing: 0.2em; color: rgba(20,20,26,0.42)">03</span>
-          <h3 style="font-size: 26px; line-height: 1.2; color: #14141A">AI products, end to end</h3>
-          <p style="font-size: 15px; line-height: 1.68; color: rgba(20,20,26,0.72)">Not a demo — a product that takes money. Onboarding and accounts, the AI feature itself, subscription billing and cancellation, and the admin tooling you need on day one when a customer writes in.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px">
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">React · Next.js</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Stripe</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Claude API</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Firebase</span>
-            <span style="font-size: 11px; color: rgba(20,20,26,0.62); border: 1px solid rgba(20,20,26,0.16); border-radius: 6px; padding: 6px 11px">Whisper · Ollama</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WORK -->
-  <div id="work" style="border-bottom: 1px solid rgba(242,239,232,0.10)">
-    <div style="max-width: 1440px; margin: 0 auto; padding: clamp(56px, 7vw, 100px) clamp(20px, 5vw, 96px)">
-      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 44px">
-        <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-          <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8993FF">Selected work</span>
-          <h2 style="font-size: clamp(30px, 3.6vw, 48px); line-height: 1.12; letter-spacing: -0.012em; color: #F2EFE8">Five things worth reading in full.</h2>
-        </div>
-        <p style="font-size: 14px; line-height: 1.65; color: rgba(242,239,232,0.58); max-width: 330px">My current role, two contracts and two of my own. Each one opens a case study: the brief, the constraint that made it hard, and what shipped.</p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px">
-
-        <button onClick="{{ open.shielda }}" style="text-align: left; background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 34px 30px 30px; display: flex; flex-direction: column; gap: 14px; color: inherit" style-hover="border-color: rgba(74,91,255,0.6); background: #15151C">
-          <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-            <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #FFFFFF; background: #4A5BFF; padding: 5px 9px; border-radius: 4px">Current role</span>
-            <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Full stack · Shielda</span>
-          </span>
-          <h3 style="font-size: clamp(24px, 2.4vw, 30px); line-height: 1.16; color: #F2EFE8">The operator interface for a security gate platform</h3>
-          <p style="font-size: 15px; line-height: 1.64; color: rgba(242,239,232,0.64)">Primary front-end engineer on the console a guard actually watches — live gate state, credential lookup, event history — in React and TypeScript, and the .NET services I extend behind it.</p>
-          <span style="font-size: 14px; font-weight: 600; color: #8993FF; padding-top: 4px">Read the case study →</span>
-        </button>
-
-        <button onClick="{{ open.payments }}" style="text-align: left; background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 34px 30px 30px; display: flex; flex-direction: column; gap: 14px; color: inherit" style-hover="border-color: rgba(74,91,255,0.6); background: #15151C">
-          <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-            <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #FFFFFF; background: #4A5BFF; padding: 5px 9px; border-radius: 4px">Contract</span>
-            <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Payments · TreviPay</span>
-          </span>
-          <h3 style="font-size: clamp(24px, 2.4vw, 30px); line-height: 1.16; color: #F2EFE8">Keeping a payments platform honest in Perl</h3>
-          <p style="font-size: 15px; line-height: 1.64; color: rgba(242,239,232,0.64)">A live B2B payment workflow with two decades of history in it. I shipped backend and UI changes into it without stopping the money, and fixed the export and submission defects that were reaching customers.</p>
-          <span style="font-size: 14px; font-weight: 600; color: #8993FF; padding-top: 4px">Read the case study →</span>
-        </button>
-
-        <button onClick="{{ open.energy }}" style="text-align: left; background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 34px 30px 30px; display: flex; flex-direction: column; gap: 14px; color: inherit" style-hover="border-color: rgba(74,91,255,0.6); background: #15151C">
-          <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-            <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #FFFFFF; background: #4A5BFF; padding: 5px 9px; border-radius: 4px">Contract</span>
-            <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Energy analytics · MCG</span>
-          </span>
-          <h3 style="font-size: clamp(24px, 2.4vw, 30px); line-height: 1.16; color: #F2EFE8">Half a terabyte of meter data, every cycle</h3>
-          <p style="font-size: 15px; line-height: 1.64; color: rgba(242,239,232,0.64)">Energy forecasting needs yesterday's readings before the market opens. I built the pipelines and the models behind them, and put the results in front of the twenty people who act on them.</p>
-          <span style="font-size: 14px; font-weight: 600; color: #8993FF; padding-top: 4px">Read the case study →</span>
-        </button>
-
-        <button onClick="{{ open.juicicora }}" style="text-align: left; background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 34px 30px 30px; display: flex; flex-direction: column; gap: 14px; color: inherit" style-hover="border-color: rgba(74,91,255,0.6); background: #15151C">
-          <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-            <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #0C0C0E; background: #F2EFE8; padding: 5px 9px; border-radius: 4px">Flagship</span>
-            <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Unreal Engine 5.6 · Steam page live</span>
-          </span>
-          <h3 style="font-size: clamp(24px, 2.4vw, 30px); line-height: 1.16; color: #F2EFE8">Juicicora — a replicated co-op world in Unreal Engine 5</h3>
-          <p style="font-size: 15px; line-height: 1.64; color: rgba(242,239,232,0.64)">Four players, one persistent hand-painted world. Server-authoritative traversal, a world clock every client agrees on, missions, economy and an alchemy table — written in C++.</p>
-          <span style="font-size: 14px; font-weight: 600; color: #8993FF; padding-top: 4px">Read the case study →</span>
-        </button>
-
-        <button onClick="{{ open.asclepius }}" style="text-align: left; background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 34px 30px 30px; display: flex; flex-direction: column; gap: 14px; color: inherit" style-hover="border-color: rgba(74,91,255,0.6); background: #15151C">
-          <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-            <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #0C0C0E; background: #F2EFE8; padding: 5px 9px; border-radius: 4px">Subscriptions live</span>
-            <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Product · Asclepius</span>
-          </span>
-          <h3 style="font-size: clamp(24px, 2.4vw, 30px); line-height: 1.16; color: #F2EFE8">A health scanner that answers for you specifically</h3>
-          <p style="font-size: 15px; line-height: 1.64; color: rgba(242,239,232,0.64)">Photograph a product, get a verdict judged against your own recorded conditions. Built solo end to end: profiles, the scan pipeline, Stripe billing and the support inbox behind it.</p>
-          <span style="font-size: 14px; font-weight: 600; color: #8993FF; padding-top: 4px">Read the case study →</span>
-        </button>
-
-      </div>
-
-      <!-- CATALOG -->
-      <div style="display: flex; align-items: center; gap: 16px; margin: 56px 0 22px">
-        <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F2EFE8">Also shipped</span>
-        <span style="flex: 1 1 auto; height: 1px; background: linear-gradient(90deg, rgba(242,239,232,0.22) 0%, rgba(242,239,232,0) 100%); display: block"></span>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 18px">
-        <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px">
-          <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #8993FF">Released 2026</span>
-          <h4 style="font-size: 22px; color: #F2EFE8">LIGHT FORCE</h4>
-          <p style="font-size: 14px; line-height: 1.6; color: rgba(242,239,232,0.62)">An arcade physics runner on one mechanic — hold to charge, release to dash. A canvas engine in Electron with Steamworks, on Windows, macOS and Linux.</p>
-          <a href="https://store.steampowered.com/app/3990550/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 8px">Steam page →</a>
-        </div>
-        <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px">
-          <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,239,232,0.56)">In development</span>
-          <h4 style="font-size: 22px; color: #F2EFE8">Forest Quest '88</h4>
-          <p style="font-size: 14px; line-height: 1.6; color: rgba(242,239,232,0.62)">A deadpan text adventure on a phosphor-green CRT. Vite and Tauri; a local model rolls dice, never writes prose.</p>
-        </div>
-        <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px">
-          <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,239,232,0.56)">In development</span>
-          <h4 style="font-size: 22px; color: #F2EFE8">Blackout</h4>
-          <p style="font-size: 14px; line-height: 1.6; color: rgba(242,239,232,0.62)">Pitch-black multiplayer horror in UE 5.5 — replicated locomotion, proximity voice, and a Python tool that generates maps headlessly.</p>
-        </div>
-        <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px">
-          <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,239,232,0.56)">Products</span>
-          <h4 style="font-size: 22px; color: #F2EFE8">EmpathyFlow · Dishcovery</h4>
-          <p style="font-size: 14px; line-height: 1.6; color: rgba(242,239,232,0.62)">Roleplay practice with graded feedback, and craving-first restaurant discovery on Next.js and Firebase. Both live, both billing.</p>
-        </div>
-        <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px">
-          <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,239,232,0.56)">Systems &amp; tools</span>
-          <h4 style="font-size: 22px; color: #F2EFE8">Risk-first trading agent</h4>
-          <p style="font-size: 14px; line-height: 1.6; color: rgba(242,239,232,0.62)">Paper-only, with an immutable risk engine: exposure caps, daily-loss halt, drawdown kill switch. No code path lets model output widen a limit.</p>
-        </div>
-        <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px">
-          <span style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,239,232,0.56)">Systems &amp; tools</span>
-          <h4 style="font-size: 22px; color: #F2EFE8">UE5 plugin suite · local-first AI</h4>
-          <p style="font-size: 14px; line-height: 1.6; color: rgba(242,239,232,0.62)">Replicated NPC memory, per-player level streaming, server-authoritative spawns. Plus private local tools — and a <a href="https://kofifs.github.io/DND/">live D&amp;D sheet</a> with the rules built in.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 26px">
-        <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" style="font-size: 14px; font-weight: 600; color: #F2EFE8; border: 1px solid rgba(74,91,255,0.7); border-radius: 8px; padding: 14px 24px" style-hover="background: rgba(74,91,255,0.16)">Full ShangkoStudio catalog on Steam →</a>
-        <span style="font-size: 13px; color: rgba(242,239,232,0.5)">Publishing since 2021.</span>
-      </div>
-
-      <!-- CLIENT ENGAGEMENTS -->
-      <div style="display: flex; align-items: center; gap: 16px; margin: 56px 0 22px">
-        <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F2EFE8">Client engagements</span>
-        <span style="flex: 1 1 auto; height: 1px; background: linear-gradient(90deg, rgba(242,239,232,0.22) 0%, rgba(242,239,232,0) 100%); display: block"></span>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-bottom: 26px">
-        <p style="font-size: 15px; line-height: 1.66; color: rgba(242,239,232,0.64)">Seven contracted engagements since 2020, almost all Unreal Engine: gameplay and VR work in Blueprints and C++, UI design, Gameplay Ability System test coverage, and turning a cinematic scene into something playable. Five of five stars on the three most recent.</p>
-        <div style="background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 24px 22px; display: flex; flex-direction: column; gap: 10px">
-          <p style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 19px; line-height: 1.42; color: #F2EFE8">“Great freelancer, skillful, quick and reliable, absolutely recommended!”</p>
-          <span style="font-size: 12px; color: rgba(242,239,232,0.5)">Client · Unreal Engine UI Designer, 2024</span>
-        </div>
-        <div style="background: #121218; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 24px 22px; display: flex; flex-direction: column; gap: 10px">
-          <p style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 19px; line-height: 1.42; color: #F2EFE8">“Impressive results, would definitely work with again!”</p>
-          <span style="font-size: 12px; color: rgba(242,239,232,0.5)">Client · UI Design for Unreal Engine Project, 2024</span>
-        </div>
-      </div>
-
-      <div style="border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; overflow: hidden">
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px; border-bottom: 1px solid rgba(242,239,232,0.10)">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">Unreal development support</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Sep 2024 — present · ongoing retainer</span>
-          </div>
-          <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8993FF; border: 1px solid rgba(74,91,255,0.5); border-radius: 4px; padding: 5px 9px; white-space: nowrap">In progress</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px; border-bottom: 1px solid rgba(242,239,232,0.10)">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">UI design for an Unreal Engine project</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Oct 2024 · committed to quality, collaborative</span>
-          </div>
-          <span style="font-size: 14px; color: #F2EFE8; white-space: nowrap">★ 5.0</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px; border-bottom: 1px solid rgba(242,239,232,0.10)">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">Test coverage for the Gameplay Ability System</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Aug — Sep 2024</span>
-          </div>
-          <span style="font-size: 14px; color: #F2EFE8; white-space: nowrap">★ 5.0</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px; border-bottom: 1px solid rgba(242,239,232,0.10)">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">Unreal Engine UI designer</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Jul — Aug 2024 · committed to quality, reliable</span>
-          </div>
-          <span style="font-size: 14px; color: #F2EFE8; white-space: nowrap">★ 5.0</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px; border-bottom: 1px solid rgba(242,239,232,0.10)">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">Cinematic Unreal scene converted to interactive</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Nov — Dec 2022</span>
-          </div>
-          <span style="font-size: 14px; color: rgba(242,239,232,0.8); white-space: nowrap">★ 4.6</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px; border-bottom: 1px solid rgba(242,239,232,0.10)">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">Unreal Engine VR developer — Blueprints and C++</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Dec 2021 — Nov 2022</span>
-          </div>
-          <span style="font-size: 14px; color: rgba(242,239,232,0.8); white-space: nowrap">★ 4.0</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding: 20px 24px">
-          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px">
-            <span style="font-size: 16px; color: #F2EFE8">Unreal Engine game developer</span>
-            <span style="font-size: 13px; color: rgba(242,239,232,0.52)">Jun 2020 — Jan 2021</span>
-          </div>
-          <span style="font-size: 13px; color: rgba(242,239,232,0.5); white-space: nowrap">Completed</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BACKGROUND -->
-  <div id="background" style="background: #F2EFE8; color: #14141A">
-    <div style="max-width: 1440px; margin: 0 auto; padding: clamp(56px, 7vw, 100px) clamp(20px, 5vw, 96px); display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(40px, 6vw, 84px)">
-      <div style="display: flex; flex-direction: column; gap: 24px">
-        <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #3A3AC8">Background</span>
-        <h2 style="font-size: clamp(28px, 3.2vw, 44px); line-height: 1.14; letter-spacing: -0.012em; color: #14141A">A decade of other people's production systems, and my own studio.</h2>
-        <p style="font-size: 16px; line-height: 1.7; color: rgba(20,20,26,0.72)">Most of my contract work has been the load-bearing kind: security platforms, payment processing, energy analytics, spatial data systems and federal statistical work. Shangko Co is where I put that discipline into products with my own name on them.</p>
-        <div style="display: flex; align-items: flex-end; flex-wrap: wrap; gap: 26px; margin-top: 8px">
-          <div style="display: flex; flex-direction: column; gap: 12px">
-            <img src="portrait.jpg" alt="Kofi Shang" style="width: 208px; height: 208px; object-fit: cover; border-radius: 8px; display: block">
-            <div style="display: flex; flex-direction: column; gap: 3px">
-              <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 19px; color: #14141A">Kofi Shang</span>
-              <span style="font-size: 13px; color: rgba(20,20,26,0.58)">Founder &amp; engineer, Shangko Co</span>
-            </div>
-          </div>
-          <img src="logo-black.png" alt="Shangko mark" style="width: 72px; height: 72px; opacity: 0.9; margin-bottom: 44px">
-        </div>
-      </div>
-      <div style="display: flex; flex-direction: column">
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 22px 0; border-bottom: 1px solid rgba(20,20,26,0.14)">
-          <span style="font-size: 13px; letter-spacing: 0.06em; color: rgba(20,20,26,0.44); min-width: 108px; padding-top: 3px">2025 — now</span>
-          <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
-            <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #14141A">Full stack engineer, Shielda</span>
-            <span style="font-size: 14px; line-height: 1.62; color: rgba(20,20,26,0.66)">Primary front-end engineer on a security gate management platform, building the operator interface in React and TypeScript and extending the .NET backend behind it.</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 22px 0; border-bottom: 1px solid rgba(20,20,26,0.14)">
-          <span style="font-size: 13px; letter-spacing: 0.06em; color: rgba(20,20,26,0.44); min-width: 108px; padding-top: 3px">2022 — now</span>
-          <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
-            <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #14141A">Founder, Shangko Co</span>
-            <span style="font-size: 14px; line-height: 1.62; color: rgba(20,20,26,0.66)">A Pennsylvania limited liability company formed in December 2022. Game development, media production and contract engineering, all under one roof.</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 22px 0; border-bottom: 1px solid rgba(20,20,26,0.14)">
-          <span style="font-size: 13px; letter-spacing: 0.06em; color: rgba(20,20,26,0.44); min-width: 108px; padding-top: 3px">Federal</span>
-          <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
-            <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #14141A">U.S. Census Bureau subcontract</span>
-            <span style="font-size: 14px; line-height: 1.62; color: rgba(20,20,26,0.66)">Authorized subcontractor through Spatial Front, Inc., handling statistical data protected under Title 13. Cleared for remote access to government systems.</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 22px 0; border-bottom: 1px solid rgba(20,20,26,0.14)">
-          <span style="font-size: 13px; letter-spacing: 0.06em; color: rgba(20,20,26,0.44); min-width: 108px; padding-top: 3px">Industry</span>
-          <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
-            <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #14141A">Contract senior software engineer</span>
-            <span style="font-size: 14px; line-height: 1.62; color: rgba(20,20,26,0.66)">Payment processing workflows, energy forecasting and half-terabyte ETL pipelines, real-time spatial data services, and internal platforms serving tens of thousands of daily users.</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 22px 0; border-bottom: 1px solid rgba(20,20,26,0.14)">
-          <span style="font-size: 13px; letter-spacing: 0.06em; color: rgba(20,20,26,0.44); min-width: 108px; padding-top: 3px">2024</span>
-          <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
-            <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #14141A">M.S. Software Engineering</span>
-            <span style="font-size: 14px; line-height: 1.62; color: rgba(20,20,26,0.66)">Pennsylvania State University. B.S. Information Technology, 2020.</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 22px 0">
-          <span style="font-size: 13px; letter-spacing: 0.06em; color: rgba(20,20,26,0.44); min-width: 108px; padding-top: 3px">2025</span>
-          <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
-            <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #14141A">Inventor — Environmental Alarm System</span>
-            <span style="font-size: 14px; line-height: 1.62; color: rgba(20,20,26,0.66)">Designed and filed a provisional patent application for a safety alarm that fuses gas and particulate sensors with thermal and visible-light cameras, so it can tell a kitchen full of steam from an actual fire — and call for help when nobody in the room can.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTACT -->
-  <div style="position: relative; overflow: hidden">
-    <img src="logo-white.png" alt="" style="position: absolute; bottom: -200px; left: -130px; width: clamp(300px, 40vw, 560px); height: clamp(300px, 40vw, 560px); opacity: 0.055; pointer-events: none">
-    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: clamp(56px, 7vw, 106px) clamp(20px, 5vw, 96px); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(36px, 5vw, 72px); align-items: center">
-      <div style="display: flex; flex-direction: column; gap: 22px">
-        <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8993FF">Available for work</span>
-        <h2 style="font-size: clamp(32px, 4vw, 54px); line-height: 1.1; letter-spacing: -0.014em; color: #F2EFE8">Tell me what you are building.</h2>
-        <p style="font-size: 17px; line-height: 1.66; color: rgba(242,239,232,0.62); max-width: 560px">Contract engineering, a full-time backend seat, a game that needs finishing, or an AI tool that has to work on real data. Send a paragraph about the problem and I will tell you honestly whether I am the right person for it.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 20px; border-left: 1px solid rgba(242,239,232,0.18); padding-left: clamp(22px, 3vw, 44px)">
-        <a href="mailto:kofifshang@gmail.com" style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: clamp(20px, 2vw, 25px); color: #F2EFE8; word-break: break-word">kofifshang@gmail.com</a>
-        <div style="display: flex; flex-direction: column; gap: 9px">
-          <a href="https://github.com/KofiFS" style="font-size: 15px; color: rgba(242,239,232,0.66)">github.com/KofiFS</a>
-          <a href="https://linkedin.com/in/kofi-shang" style="font-size: 15px; color: rgba(242,239,232,0.66)">linkedin.com/in/kofi-shang</a>
-        </div>
-        <p style="font-size: 13px; line-height: 1.6; color: rgba(242,239,232,0.56)">Remote, United States. Based in Pennsylvania.</p>
-        <a href="/start" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; padding: 16px 28px; border-radius: 8px; text-align: center" style-hover="background: #3A49E0">Start a project</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div style="border-top: 1px solid rgba(242,239,232,0.10)">
-    <div style="max-width: 1440px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 26px clamp(20px, 5vw, 96px)">
-      <div style="display: flex; align-items: center; gap: 12px">
-        <img src="logo-white.png" alt="" style="width: 22px; height: 22px; opacity: 0.7; display: block">
-        <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Shangko Co · Pennsylvania</span>
-      </div>
-      <span style="font-size: 12px; color: rgba(242,239,232,0.54)">© 2026 Kofi Shang. All rights reserved.</span>
-    </div>
-  </div>
-
-  <!-- CASE STUDY OVERLAY -->
-  <sc-if value="{{ cs }}">
-    <div style="position: fixed; inset: 0; z-index: 90; background: rgba(6,6,8,0.72); backdrop-filter: blur(6px); display: flex; justify-content: flex-end">
-      <div onClick="{{ close }}" style="position: absolute; inset: 0"></div>
-      <div data-cs-scroll="1" style="position: relative; width: min(760px, 100%); height: 100%; overflow-y: auto; background: #0F0F14; border-left: 1px solid rgba(242,239,232,0.16); animation: driftIn 320ms ease both">
-        <div style="position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px clamp(22px, 4vw, 46px); background: rgba(15,15,20,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(242,239,232,0.12)">
-          <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8993FF">{{ cs.kicker }}</span>
-          <button onClick="{{ close }}" style="font-size: 13px; color: #F2EFE8; background: transparent; border: 1px solid rgba(242,239,232,0.26); border-radius: 8px; padding: 10px 16px" style-hover="border-color: rgba(242,239,232,0.6)">Close</button>
-        </div>
-        <div style="padding: clamp(28px, 4vw, 46px) clamp(22px, 4vw, 46px) 72px; display: flex; flex-direction: column; gap: 30px">
-          <h3 style="font-size: clamp(28px, 3.4vw, 40px); line-height: 1.12; color: #F2EFE8">{{ cs.title }}</h3>
-          <p style="font-size: 17px; line-height: 1.66; color: rgba(242,239,232,0.72)">{{ cs.lede }}</p>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
-            <sc-for list="{{ cs.facts }}" as="f" hint-placeholder-count="3">
-              <div style="border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: 16px 16px; display: flex; flex-direction: column; gap: 5px">
-                <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(242,239,232,0.5)">{{ f.k }}</span>
-                <span style="font-size: 15px; line-height: 1.4; color: #F2EFE8">{{ f.v }}</span>
-              </div>
-            </sc-for>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 12px">
-            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.5)">The constraint</span>
-            <p style="font-size: 16px; line-height: 1.68; color: rgba(242,239,232,0.7); border-left: 2px solid #4A5BFF; padding-left: 20px">{{ cs.constraint }}</p>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 14px">
-            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.5)">What I built</span>
-            <div style="display: flex; flex-direction: column; gap: 12px">
-              <sc-for list="{{ cs.built }}" as="b" hint-placeholder-count="4">
-                <div style="display: flex; gap: 14px; align-items: flex-start">
-                  <span style="flex: 0 0 auto; width: 5px; height: 5px; border-radius: 50%; background: #4A5BFF; margin-top: 9px"></span>
-                  <span style="font-size: 15px; line-height: 1.62; color: rgba(242,239,232,0.72)">{{ b.t }}</span>
-                </div>
-              </sc-for>
-            </div>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 14px">
-            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.5)">Outcome</span>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
-              <sc-for list="{{ cs.outcome }}" as="o" hint-placeholder-count="2">
-                <div style="background: #14141B; border: 1px solid rgba(242,239,232,0.12); border-radius: 8px; padding: 20px 18px; display: flex; flex-direction: column; gap: 6px">
-                  <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 26px; color: #F2EFE8">{{ o.n }}</span>
-                  <span style="font-size: 13px; line-height: 1.5; color: rgba(242,239,232,0.62)">{{ o.t }}</span>
-                </div>
-              </sc-for>
-            </div>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 12px">
-            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.5)">Stack</span>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px">
-              <sc-for list="{{ cs.stack }}" as="s" hint-placeholder-count="5">
-                <span style="font-size: 12px; color: rgba(242,239,232,0.7); border: 1px solid rgba(242,239,232,0.2); border-radius: 6px; padding: 7px 12px">{{ s.t }}</span>
-              </sc-for>
-            </div>
-          </div>
-
-          <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px">
-            <a href="/start" style="font-size: 14px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; border-radius: 8px; padding: 15px 26px" style-hover="background: #3A49E0">Talk about work like this</a>
-            <sc-if value="{{ cs.link }}">
-              <a href="{{ cs.link }}" style="font-size: 14px; color: #F2EFE8; border: 1px solid rgba(74,91,255,0.7); border-radius: 8px; padding: 14px 22px" style-hover="background: rgba(74,91,255,0.16)">Steam store page →</a>
-            </sc-if>
-            <button onClick="{{ next }}" style="font-size: 14px; color: #F2EFE8; background: transparent; border: 1px solid rgba(242,239,232,0.26); border-radius: 8px; padding: 14px 22px" style-hover="border-color: rgba(242,239,232,0.6)">Next case study →</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </sc-if>
-
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
-const STAGES = [
-  { step: '01', label: 'Client', sub: 'Browser or game client', ms: 0 },
-  { step: '02', label: 'Edge', sub: 'TLS, CDN, rate limit', ms: 4 },
-  { step: '03', label: 'Gateway', sub: 'Auth, contract validation', ms: 11 },
-  { step: '04', label: 'Service', sub: 'Business logic, one owner', ms: 21 },
-  { step: '05', label: 'Cache', sub: 'Hot reads, short TTL', ms: 2 },
-  { step: '06', label: 'Postgres', sub: 'Indexed, only on a miss', ms: 38 }
-];
-
-const CASES = {
-  shielda: {
-    kicker: 'Shielda · 2025 — present · current role',
-    title: 'The operator interface for a security gate platform',
-    lede: 'Shielda manages physical access control — gates, credentials, the people who pass through them. I am the primary front-end engineer on the operator interface: the screen a guard actually watches, built in React and TypeScript, backed by the .NET services I extend behind it.',
-    facts: [{ k: 'Role', v: 'Full stack engineer, front-end lead' }, { k: 'Surface', v: 'Operator console and the API behind it' }, { k: 'Since', v: '2025 — present' }],
-    constraint: 'An access-control console is used under pressure, often one-handed, sometimes at three in the morning. State has to be truthful the instant it changes — a gate shown as closed when it is open is a security incident, not a stale cache.',
-    built: [
-      { t: 'The operator interface in React and TypeScript: live gate and device state, credential lookup, and the event history an operator needs to explain what just happened.' },
-      { t: 'A typed client layer over the .NET API so every screen shares one contract — no hand-rolled fetches drifting out of sync with the backend.' },
-      { t: 'Extensions to the .NET backend itself where the interface needed data the API did not yet expose, rather than papering over it in the client.' },
-      { t: 'Component and state patterns the rest of the front end now builds on, so new screens arrive consistent instead of bespoke.' },
-      { t: 'Interaction design for the high-stakes paths — confirmations, error and offline states — so an operator is never guessing whether a command landed.' }
-    ],
-    outcome: [{ n: 'Primary', t: 'Front-end engineer on the platform' }, { n: 'Full stack', t: 'React and TypeScript through to .NET' }, { n: 'Live', t: 'In use by operators today' }],
-    stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: '.NET' }, { t: 'REST APIs' }, { t: 'Access control domain' }]
-  },
-  payments: {
-    kicker: 'Contract · TreviPay via Advantage Tech · 2025',
-    title: 'Keeping a payments platform honest in Perl',
-    lede: 'A live B2B payment platform with twenty years of history in it, still processing invoices for enterprise buyers every day. My job was to change it — backend and operator UI — without ever taking the money offline.',
-    facts: [{ k: 'Role', v: 'Senior software engineer, contract' }, { k: 'Duration', v: 'Jan — Jul 2025' }, { k: 'Team', v: 'Agile squad with QA and product' }],
-    constraint: 'Nothing could be rewritten. Every change had to land inside an old Perl codebase whose behaviour customers already depended on, and be provable before release — because the failure mode is a payment that silently does not happen.',
-    built: [
-      { t: 'Backend and UI enhancements to the payment processing workflows, shipped as incremental changes rather than a rewrite, so each release could be reasoned about and rolled back.' },
-      { t: 'Fixes for the production defects that were actually reaching customers: broken CSV exports and form submissions that failed without telling anyone.' },
-      { t: 'Optimised SQL and XML-based data integrations for high-volume transaction paths, cutting query time on the reports operators run all day.' },
-      { t: 'Microservices deployed with Docker and Kubernetes through GitLab CI/CD, replacing manual deployment steps with a pipeline.' },
-      { t: 'Fifteen-plus features delivered across Agile sprints with QA and product, including the code review and implementation planning around them.' }
-    ],
-    outcome: [{ n: 'Lower', t: 'Error rates on export and submission paths' }, { n: 'Faster', t: 'Deployment through CI/CD instead of by hand' }, { n: '15+', t: 'Features shipped in six months' }],
-    stack: [{ t: 'Perl' }, { t: 'JavaScript' }, { t: 'SQL' }, { t: 'XML integrations' }, { t: 'Docker' }, { t: 'Kubernetes' }, { t: 'GitLab CI/CD' }]
-  },
-  energy: {
-    kicker: 'Contract · MCG Energy Solutions · 2021 — 2022',
-    title: 'Half a terabyte of meter data, every cycle',
-    lede: 'Energy forecasting only helps if yesterday\u2019s readings are loaded, cleaned and modelled before the market opens. I owned the pipelines that made that deadline, the forecasting models on top of them, and the dashboards the traders actually looked at.',
-    facts: [{ k: 'Role', v: 'Senior software engineer, contract' }, { k: 'Scale', v: '500GB+ per processing cycle' }, { k: 'Audience', v: '20+ stakeholders, daily' }],
-    constraint: 'A forecast delivered late is worthless, and a forecast built on a silently corrupt load is worse than none. The pipeline had to be fast enough to finish overnight and honest enough to fail loudly.',
-    built: [
-      { t: 'ETL pipelines and data models in DuckDB, Pandas and Snowflake processing 500GB+ of energy data per cycle, with schema-level validation at ingest.' },
-      { t: 'AI-driven energy forecasting models in Python, integrated into the backend analytics services rather than left in a notebook.' },
-      { t: 'React and Snowflake dashboards putting energy-usage KPIs in front of twenty-plus stakeholders in real time.' },
-      { t: 'Automated cloud deployment with Docker and Kubernetes on Azure, and the monitoring that proved the system stayed up.' },
-      { t: 'Mentoring for three engineers on the AI/ML workflow and the CI/CD and containerisation practices around it.' }
-    ],
-    outcome: [{ n: '99.95%', t: 'System uptime for energy management' }, { n: '500GB+', t: 'Processed per cycle, inside the window' }, { n: '20+', t: 'Stakeholders on live KPIs' }],
-    stack: [{ t: 'Python' }, { t: 'DuckDB' }, { t: 'Pandas' }, { t: 'Snowflake' }, { t: 'React' }, { t: 'Azure' }, { t: 'Docker' }, { t: 'Kubernetes' }]
-  },
-  juicicora: {
-    kicker: 'ShangkoStudio · Steam page live · Early Access planned',
-    title: 'Juicicora — a replicated co-op world in Unreal Engine 5',
-    lede: 'A cozy four-player adventure: you are a small glossy creature exploring hand-painted meadows, chalk cliffs and floating islands, dashing and wall-jumping between them and mixing fruit power-ups at an alchemy table. The studio\u2019s flagship, and the deepest engineering in the catalog.',
-    facts: [{ k: 'Role', v: 'Developer and publisher' }, { k: 'Engine', v: 'Unreal Engine 5.6 · C++' }, { k: 'Players', v: 'Up to four, online co-op' }],
-    constraint: 'Cozy is the hardest thing to replicate. Four players share one persistent world, so movement, the economy, the alchemy table and the world clock all have to stay server-authoritative and still feel weightless on a client three hundred milliseconds away.',
-    built: [
-      { t: 'Replicated multiplayer for up to four players in C++ — movement, dash and wall-jump traversal that stays server-authoritative without feeling like it.' },
-      { t: 'A persistent world clock every client agrees on, driving time-of-day, spawns and the rhythm the missions are written against.' },
-      { t: 'The mission system, the in-world economy and cosmetics, each designed to survive players joining and leaving mid-session.' },
-      { t: 'The alchemy table: fruit power-ups that combine, with the resulting effects replicated to everyone who can see them.' },
-      { t: 'Hand-painted environment art direction across meadows, chalk cliffs and floating islands, and the Steam store presence around it.' }
-    ],
-    outcome: [{ n: 'Live', t: 'Steam store page published' }, { n: '4-player', t: 'Replicated co-op, one persistent world' }, { n: 'UE 5.6', t: 'C++ gameplay, not Blueprint glue' }],
-    stack: [{ t: 'Unreal Engine 5.6' }, { t: 'C++' }, { t: 'Replication' }, { t: 'Steamworks' }, { t: 'Gameplay systems' }],
-    link: 'https://store.steampowered.com/app/5087380/'
-  },
-  asclepius: {
-    kicker: 'Shangko Co · shipped, subscriptions live',
-    title: 'A health scanner that answers for you specifically',
-    lede: 'Photograph a product and find out whether it is safe for you — not for an average person. Users record their chronic conditions once, and every scan afterwards is judged against that profile. Built solo, end to end, and taking money.',
-    facts: [{ k: 'Role', v: 'Sole engineer and operator' }, { k: 'Status', v: 'Live with paid subscriptions' }, { k: 'Surface', v: 'Product, billing and support' }],
-    constraint: 'A wrong answer about someone\u2019s health is not a bug you ship and patch. The model output had to be constrained by an explicit condition profile, and every result had to be inspectable by the person who received it.',
-    built: [
-      { t: 'A scan pipeline that resolves a photographed product and evaluates it against the user\u2019s stored conditions, with the reasoning shown rather than hidden.' },
-      { t: 'Multiple condition profiles per account, shareable results and full scan history.' },
-      { t: 'Stripe checkout and the customer portal, so upgrade, downgrade and cancellation are self-service from day one.' },
-      { t: 'Serverless functions for the scan and billing webhooks, sized so an idle week costs nothing.' },
-      { t: 'An in-app support inbox, because the first paying customer writes in before you have a helpdesk.' }
-    ],
-    outcome: [{ n: 'Live', t: 'Subscriptions processing through Stripe' }, { n: 'Solo', t: 'Product, infrastructure and support' }, { n: 'Day one', t: 'Admin tooling, not an afterthought' }],
-    stack: [{ t: 'React' }, { t: 'Serverless functions' }, { t: 'Stripe' }, { t: 'Claude API' }, { t: 'Firebase' }]
-  }
-};
-
-const ORDER = ['shielda', 'payments', 'energy', 'juicicora', 'asclepius'];
-
-class Component extends DCLogic {
-  state = { warm: false, active: -1, running: false, done: false, history: [], caseId: null };
-
-  componentWillUnmount() { clearTimeout(this.t); document.body.style.overflow = ''; }
-
-  total(warm) {
-    let sum = 0;
-    STAGES.forEach((s, i) => { if (!(warm && i === 5)) sum += s.ms; });
-    return sum + (warm ? 3 : 9);
-  }
-
-  send = () => {
-    if (this.state.running) return;
-    clearTimeout(this.t);
-    const warm = this.state.warm;
-    const seq = warm ? [0, 1, 2, 3, 4] : [0, 1, 2, 3, 4, 5];
-    this.setState({ running: true, done: false, active: -1 });
-    let k = 0;
-    const step = () => {
-      if (k >= seq.length) {
-        this.setState({ running: false, done: true, active: -1 });
-        return;
-      }
-      this.setState({ active: seq[k] });
-      k += 1;
-      this.t = setTimeout(step, 210);
-    };
-    step();
-  };
-
-  toggleWarm = () => this.setState(s => ({ warm: !s.warm, done: false, active: -1 }));
-
-  openCase = id => { document.body.style.overflow = 'hidden'; this.setState({ caseId: id }); };
-  closeCase = () => { document.body.style.overflow = ''; this.setState({ caseId: null }); };
-  nextCase = () => {
-    const i = ORDER.indexOf(this.state.caseId);
-    this.setState({ caseId: ORDER[(i + 1) % ORDER.length] });
-    const el = document.querySelector('[data-cs-scroll]');
-    if (el) el.scrollTop = 0;
-  };
-
-  renderVals() {
-    const { warm, active, running, done, caseId } = this.state;
-    const stages = STAGES.map((s, i) => {
-      const skipped = warm && i === 5;
-      const on = active === i;
-      return {
-        step: s.step,
-        label: s.label,
-        sub: skipped ? 'Skipped — cache hit' : s.sub,
-        glow: on ? 1 : 0,
-        bar: on ? 1 : 0,
-        dim: skipped ? 0.38 : 1,
-        msText: i === 0 ? 'origin' : (skipped ? '— ms' : '+' + s.ms + ' ms'),
-        msColor: on ? '#B4BBFF' : (skipped ? 'rgba(242,239,232,0.32)' : 'rgba(242,239,232,0.56)')
-      };
-    });
-
-    const ms = this.total(warm);
-
-    return {
-      stages,
-      warmLabel: warm ? 'Cache: warm' : 'Cache: cold',
-      sendLabel: running ? 'Tracing…' : (done ? 'Send another' : 'Send a request'),
-      totalText: done ? ms + ' ms' : (running ? '…' : '— ms'),
-      pathText: warm
-        ? 'Edge → gateway → service → cache. The database is never touched.'
-        : 'Edge → gateway → service → cache miss → Postgres. The slow path, instrumented.',
-      send: this.send,
-      toggleWarm: this.toggleWarm,
-      cs: caseId ? CASES[caseId] : null,
-      close: this.closeCase,
-      next: this.nextCase,
-      open: {
-        shielda: () => this.openCase('shielda'),
-        payments: () => this.openCase('payments'),
-        energy: () => this.openCase('energy'),
-        juicicora: () => this.openCase('juicicora'),
-        asclepius: () => this.openCase('asclepius')
-      }
-    };
-  }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kofi Shang",
+  "jobTitle": "Software Engineer and Game Developer",
+  "email": "mailto:kofifshang@gmail.com",
+  "url": "https://kofifshang.dev/",
+  "image": "https://kofifshang.dev/assets/portrait.jpg",
+  "worksFor": { "@type": "Organization", "name": "Shangko Co" },
+  "address": { "@type": "PostalAddress", "addressRegion": "PA", "addressCountry": "US" },
+  "sameAs": [
+    "https://github.com/KofiFS",
+    "https://www.linkedin.com/in/kofi-shang/",
+    "https://store.steampowered.com/search/?publisher=ShangkoStudio"
+  ]
 }
 </script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="Kofi Shang, Shangko Co">
+      <img src="/logo-white.png" alt="" width="32" height="32">
+      <span><b>Kofi Shang</b><span>Shangko Co</span></span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#now">Building now</a>
+      <a href="#games">Games</a>
+      <a href="#also">Other work</a>
+      <a href="#about">About</a>
+      <a class="btn btn--primary btn--sm" href="/start">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <img class="hero__mark" src="/logo-white.png" alt="" aria-hidden="true">
+  <div class="wrap hero__inner">
+    <p class="kicker">Game developer &amp; software engineer</p>
+    <h1>Ten games on Steam,<br>and the software<br><em>around them.</em></h1>
+    <p class="hero__lede">I'm Kofi Shang. I build and publish games under Shangko Co, and write the tools and backend systems that sit behind them. Two titles launched this month, and Clutch, my game clip recorder, is free and open source.</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download Clutch for Windows</a>
+      <a class="btn btn--ghost" href="#games">Browse the games</a>
+    </div>
+    <div class="socials" style="margin-top:.5rem">
+      <a class="social" href="https://github.com/KofiFS"><b>GitHub</b> <span>@KofiFS</span></a>
+      <a class="social" href="https://store.steampowered.com/search/?publisher=ShangkoStudio"><b>Steam</b> <span>ShangkoStudio</span></a>
+      <a class="social" href="https://www.linkedin.com/in/kofi-shang/"><b>LinkedIn</b> <span>kofi-shang</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>10 games</b><span>Published on Steam since 2020</span></div>
+      <div class="stat"><b>2 launches</b><span>Both in October 2026</span></div>
+      <div class="stat"><b>Clutch v0.1.6</b><span>Free and open source, GPL-3.0</span></div>
+      <div class="stat"><b>10+ years</b><span>Professional software engineering</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BUILDING NOW ============================ -->
+<section class="section section--raised" id="now">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="kicker">Building now</p>
+      <h2>What I'm actually working on this month.</h2>
+      <p>Everything here saw code or a release in the last few weeks.</p>
+    </div>
+
+    <div class="now">
+
+      <article class="card card--lead reveal">
+        <div class="card__top">
+          <img class="card__icon" src="/assets/clutch-icon.png" alt="" width="52" height="52">
+          <h3>Clutch</h3>
+          <span class="pill pill--live">Out now · free</span>
+        </div>
+        <div class="card__body">
+          <div style="display:flex;flex-direction:column;gap:1rem">
+            <p><b>The game clip recorder you can tell what to clip.</b> An always-on replay buffer that is light like NVIDIA's recorder and social like Medal, with no ads you cannot turn off. It reads your existing Medal, OBS and NVIDIA clips in place, so nothing is copied, moved or deleted.</p>
+            <p class="card__meta">Electron, React and TypeScript, with GPU encoding through NVENC, AMF and Quick Sync. Six releases in five days. Windows 10 and 11.</p>
+            <div class="card__links">
+              <a class="btn btn--primary btn--sm" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download for Windows</a>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/KofiFS/clutch">Source on GitHub</a>
+            </div>
+          </div>
+          <ul class="feats">
+            <li>Clip hotkey saves the seconds before and after, and you can change the length mid-game</li>
+            <li>Clips that make themselves when you or your friends suddenly get loud</li>
+            <li>Describe what to clip in plain English, like "my kills, never menus"</li>
+            <li>Per-game profiles and automatic game detection</li>
+            <li>Built-in editor with 9:16 crops for Shorts and TikTok</li>
+            <li>Posts to Discord and uploads to YouTube, now or scheduled</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__top">
+          <h3>I Can't See You</h3>
+          <span class="pill pill--new">Launched 10 Oct</span>
+        </div>
+        <p>A multiplayer shooter played in total darkness, for two to eight players. Every footstep, reload, shot and spoken word gives your position away. Flashlights, flashbangs, tape recorders that replay sounds, and walkie talkies you can eavesdrop on.</p>
+        <p class="card__meta">Unreal Engine 5.5 · C++ · Steam networking with proximity voice · $5.99, Early Access</p>
+        <div class="card__links">
+          <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/5267160/">View on Steam</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__top">
+          <h3>Forest Quest '88</h3>
+          <span class="pill pill--new">Launched 1 Oct</span>
+        </div>
+        <p>A deadpan comedy text adventure on a green CRT screen. You wake in a forest and just want to get home to bed, through a randomised journey with 95 endings. The narrator runs locally and offline, so it costs players nothing to run.</p>
+        <p class="card__meta">Vite and Tauri · a local model narrates, while all the jokes stay authored · $1.99</p>
+        <div class="card__links">
+          <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/4895890/">View on Steam</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__top">
+          <h3>Juicicora</h3>
+          <span class="pill pill--wip">In development</span>
+        </div>
+        <p>A cosy co-op adventure for up to four players. You are a small glossy creature exploring hand-painted meadows, chalk cliffs and floating islands, running missions and mini-games and mixing fruit power-ups at an alchemy table.</p>
+        <p class="card__meta">Unreal Engine 5.6 · C++ · the deepest systems work I have going · Early Access planned for December 2027</p>
+        <div class="card__links">
+          <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/5087380/">Wishlist on Steam</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GAMES ============================ -->
+<section class="section" id="games">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="kicker">The catalogue</p>
+      <h2>Ten games, published under ShangkoStudio.</h2>
+      <p>Everything below is on Steam, developed and published by me. The earliest shipped in 2020.</p>
+    </div>
+
+    <div class="games">
+
+      <a class="game reveal" href="https://store.steampowered.com/app/5267160/">
+        <img class="game__art" src="/assets/games/i-cant-see-you.jpg" alt="I Can't See You capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>I Can't See You</h3><span class="game__year">2026</span></div>
+          <p>Multiplayer shooting in the pitch dark, where sound is the only thing that finds you.</p>
+          <div class="game__foot"><span>Early Access</span><span>$5.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/4895890/">
+        <img class="game__art" src="/assets/games/forest-quest-88.jpg" alt="Forest Quest 88 capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Forest Quest '88</h3><span class="game__year">2026</span></div>
+          <p>A text adventure that lies to you, on a green CRT, with 95 ways to end badly.</p>
+          <div class="game__foot"><span>Comedy adventure</span><span>$1.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/3990550/">
+        <img class="game__art" src="/assets/games/light-force.jpg" alt="LIGHT FORCE capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>LIGHT FORCE</h3><span class="game__year">2026</span></div>
+          <p>An arcade physics runner built on one move: hold to charge, release to dash.</p>
+          <div class="game__foot"><span>Free demo available</span><span>$4.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/2899880/">
+        <img class="game__art" src="/assets/games/monkey-see.jpg" alt="Monkey See, Monkey Doo, Monkey Kiss You capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Monkey See, Monkey Doo, Monkey Kiss You</h3><span class="game__year">2026</span></div>
+          <p>First-person horror through a forest, chased by relentlessly amorous monkeys.</p>
+          <div class="game__foot"><span>Online co-op</span><span>$7.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/2349060/">
+        <img class="game__art" src="/assets/games/tiny-mans-revenge.jpg" alt="Tiny Man's Revenge Remastered capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Tiny Man's Revenge Remastered</h3><span class="game__year">2023</span></div>
+          <p>A shrunken billionaire robs a house to fund his beloved soup. Multiple endings.</p>
+          <div class="game__foot"><span>Soundtrack on Steam</span><span>$19.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/2154710/">
+        <img class="game__art" src="/assets/games/elite-comet.jpg" alt="Elite Comet capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Elite Comet</h3><span class="game__year">2022</span></div>
+          <p>Physics-driven space combat where mass and momentum decide every collision.</p>
+          <div class="game__foot"><span>Up to 10 players</span><span>$0.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/2005490/">
+        <img class="game__art" src="/assets/games/meat-beating.jpg" alt="Meat Beating: The Second Coming capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Meat Beating: The Second Coming</h3><span class="game__year">2022</span></div>
+          <p>A deadpan clicker with a robed man waiting to talk at you after every level.</p>
+          <div class="game__foot"><span>Comedy</span><span>$0.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/1748090/">
+        <img class="game__art" src="/assets/games/juicy-bois.jpg" alt="Juicy Bois: Conflict capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Juicy Bois: Conflict</h3><span class="game__year">2021</span></div>
+          <p>Gelatinous characters race for gem chests, head to head or together.</p>
+          <div class="game__foot"><span>16-player online</span><span>$0.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/1216560/">
+        <img class="game__art" src="/assets/games/slimey.jpg" alt="Slimey capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Slimey</h3><span class="game__year">2020</span></div>
+          <p>The first one out the door. An action platformer with versus and co-op.</p>
+          <div class="game__foot"><span>Where it started</span><span>$0.99</span></div>
+        </div>
+      </a>
+
+      <a class="game reveal" href="https://store.steampowered.com/app/5087380/">
+        <img class="game__art" src="/assets/games/juicicora.jpg" alt="Juicicora capsule art" loading="lazy" width="460" height="215">
+        <div class="game__body">
+          <div class="game__title"><h3>Juicicora</h3><span class="game__year">2027</span></div>
+          <p>A cosy four-player creature adventure across meadows and floating islands.</p>
+          <div class="game__foot"><span>Wishlist now</span><span>Coming soon</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OTHER WORK ============================ -->
+<section class="section section--raised" id="also">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="kicker">Other work</p>
+      <h2>Tools and systems I built for myself first.</h2>
+    </div>
+
+    <div class="rows reveal">
+      <div class="row">
+        <h3>D&amp;D Character Sheet</h3>
+        <p>An auto-saving fifth-edition sheet with the official rules built in, so it still reads at the table with no signal.</p>
+        <span class="row__tag"><a href="https://kofifs.github.io/DND/">Open it →</a></span>
+      </div>
+      <div class="row">
+        <h3>SysMon</h3>
+        <p>A dark, card-based replacement for Windows Task Manager showing real sensors: temperatures, fan speeds and power draw next to the usual graphs.</p>
+        <span class="row__tag">C# · .NET 10 · personal tool</span>
+      </div>
+      <div class="row">
+        <h3>Mirage</h3>
+        <p>A call copilot that stays invisible to screen sharing. It transcribes locally, works out who is speaking, and answers from your own notes.</p>
+        <span class="row__tag">Electron · local Whisper</span>
+      </div>
+      <div class="row">
+        <h3>Risk-first trading agent</h3>
+        <p>A paper-only bot whose risk engine is authoritative over the model: immutable limits, a daily-loss halt, and no code path that lets model output widen a limit.</p>
+        <span class="row__tag">Python · backtested</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="section" id="about">
+  <div class="wrap about">
+    <img class="reveal" src="/assets/portrait.jpg" alt="Kofi Shang" width="220" height="220">
+    <div class="reveal">
+      <p class="kicker" style="margin-bottom:1rem">About</p>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1rem">Ten years of other people's production systems, and my own studio.</h2>
+      <p>I have spent a decade building backend services, data pipelines and platform software on contract: security access control, payment processing, energy analytics, real-time spatial systems, and federal statistical work as a subcontractor to the U.S. Census Bureau.</p>
+      <p>Shangko Co is where that discipline goes into things with my own name on them. Ten games on Steam, a clip recorder people actually install, and a handful of tools I needed badly enough to write.</p>
+      <p>M.S. Software Engineering, Penn State. Based in Pennsylvania, working remote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="section section--raised" id="contact">
+  <div class="wrap contact">
+    <div class="reveal">
+      <p class="kicker" style="margin-bottom:1rem">Work with me</p>
+      <h2>Tell me what you are building.</h2>
+      <p style="color:var(--t2);margin-top:1rem;max-width:34rem">I take on contract engineering, game development and release work, and AI products that have to hold up with real users. Send a paragraph about the problem and I will tell you honestly whether I am the right person for it.</p>
+    </div>
+    <div class="contact__card reveal">
+      <a class="btn btn--primary" href="/start">Start a project</a>
+      <a class="contact__email" href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
+      <p style="font-size:.8125rem;color:var(--t3)">Remote, United States. I read every enquiry myself and reply within two business days.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__left">
+      <img src="/logo-white.png" alt="" aria-hidden="true" width="22" height="22">
+      <small>Shangko Co · Pennsylvania</small>
+    </div>
+    <div class="socials">
+      <a class="social" href="https://github.com/KofiFS"><b>GitHub</b></a>
+      <a class="social" href="https://store.steampowered.com/search/?publisher=ShangkoStudio"><b>Steam</b></a>
+      <a class="social" href="https://www.linkedin.com/in/kofi-shang/"><b>LinkedIn</b></a>
+    </div>
+    <small>© 2026 Kofi Shang. All rights reserved.</small>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+    });
+
+    var items = document.querySelectorAll('.reveal');
+    if (!window.IntersectionObserver || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
 </body>
 </html>
