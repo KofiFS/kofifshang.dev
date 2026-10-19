@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kofi Shang — games, tools and systems</title>
-<meta name="description" content="Kofi Shang builds and publishes games on Steam under Shangko Co, and writes the software around them. Clutch, a free open-source game clip recorder, plus ten released titles.">
+<title>Kofi Shang — Clutch and Juicicora</title>
+<meta name="description" content="Kofi Shang builds Clutch, a free open-source game clip recorder for Windows, and Juicicora, a cosy four-player co-op adventure. Plus ten released games on Steam.">
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
@@ -12,10 +12,10 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kofi Shang">
-<meta property="og:title" content="Kofi Shang — games, tools and systems">
-<meta property="og:description" content="Ten games on Steam and the software around them. Clutch, a free open-source clip recorder, is out now.">
+<meta property="og:title" content="Kofi Shang — Clutch and Juicicora">
+<meta property="og:description" content="Clutch, a free open-source clip recorder, is out now. Juicicora, a cosy four-player co-op adventure, is in development.">
 <meta property="og:url" content="https://kofifshang.dev/">
-<meta property="og:image" content="https://kofifshang.dev/assets/portrait.jpg">
+<meta property="og:image" content="https://kofifshang.dev/assets/clutch-shot.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0A0A0C">
 
@@ -55,7 +55,7 @@
     </a>
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <nav class="nav__links" id="navLinks" aria-label="Primary">
-      <a href="#now">Building now</a>
+      <a href="#products">Products</a>
       <a href="#games">Games</a>
       <a href="#also">Other work</a>
       <a href="#about">About</a>
@@ -71,12 +71,12 @@
 <section class="hero">
   <img class="hero__mark" src="/logo-white.png" alt="" aria-hidden="true">
   <div class="wrap hero__inner">
-    <p class="kicker">Game developer &amp; software engineer</p>
-    <h1>Ten games on Steam,<br>and the software<br><em>around them.</em></h1>
-    <p class="hero__lede">I'm Kofi Shang. I build and publish games under Shangko Co, and write the tools and backend systems that sit behind them. Two titles launched this month, and Clutch, my game clip recorder, is free and open source.</p>
+    <p class="kicker">Two products, built in the open</p>
+    <h1>Clutch and <em>Juicicora.</em></h1>
+    <p class="hero__lede">I'm Kofi Shang. Clutch is a free, open-source game clip recorder for Windows that you can simply tell what to clip. Juicicora is a cosy co-op adventure for up to four players, and the deepest thing I have ever built. Ten more games of mine are already on Steam.</p>
     <div class="hero__cta">
-      <a class="btn btn--primary" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download Clutch for Windows</a>
-      <a class="btn btn--ghost" href="#games">Browse the games</a>
+      <a class="btn btn--primary" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download Clutch</a>
+      <a class="btn btn--ghost" href="https://store.steampowered.com/app/5087380/">Wishlist Juicicora</a>
     </div>
     <div class="socials" style="margin-top:.5rem">
       <a class="social" href="https://github.com/KofiFS"><b>GitHub</b> <span>@KofiFS</span></a>
@@ -84,51 +84,91 @@
       <a class="social" href="https://www.linkedin.com/in/kofi-shang/"><b>LinkedIn</b> <span>kofi-shang</span></a>
     </div>
     <div class="stats">
-      <div class="stat"><b>10 games</b><span>Published on Steam since 2020</span></div>
-      <div class="stat"><b>2 launches</b><span>Both in October 2026</span></div>
-      <div class="stat"><b>Clutch v0.1.6</b><span>Free and open source, GPL-3.0</span></div>
+      <div class="stat"><b>Clutch v0.1.6</b><span>Free and open source, out now</span></div>
+      <div class="stat"><b>Juicicora</b><span>In development, wishlist on Steam</span></div>
+      <div class="stat"><b>10 games</b><span>Already published on Steam</span></div>
       <div class="stat"><b>10+ years</b><span>Professional software engineering</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============================ BUILDING NOW ============================ -->
-<section class="section section--raised" id="now">
+<!-- ============================ PRODUCTS ============================ -->
+<section class="section section--raised" id="products">
   <div class="wrap">
     <div class="section__head reveal">
-      <p class="kicker">Building now</p>
-      <h2>What I'm actually working on this month.</h2>
-      <p>Everything here saw code or a release in the last few weeks.</p>
+      <p class="kicker">The main things</p>
+      <h2>Two products I am building right now.</h2>
+      <p>One is finished enough to download today. The other is the biggest thing I have taken on.</p>
     </div>
 
-    <div class="now">
+    <div class="products">
 
-      <article class="card card--lead reveal">
-        <div class="card__top">
-          <img class="card__icon" src="/assets/clutch-icon.png" alt="" width="52" height="52">
-          <h3>Clutch</h3>
-          <span class="pill pill--live">Out now · free</span>
+      <article class="product reveal">
+        <div class="product__media">
+          <img src="/assets/clutch-shot.jpg" alt="The Clutch app showing the home screen, clip library and automatic clipping options" loading="lazy" width="800" height="500">
         </div>
-        <div class="card__body">
-          <div style="display:flex;flex-direction:column;gap:1rem">
-            <p><b>The game clip recorder you can tell what to clip.</b> An always-on replay buffer that is light like NVIDIA's recorder and social like Medal, with no ads you cannot turn off. It reads your existing Medal, OBS and NVIDIA clips in place, so nothing is copied, moved or deleted.</p>
-            <p class="card__meta">Electron, React and TypeScript, with GPU encoding through NVENC, AMF and Quick Sync. Six releases in five days. Windows 10 and 11.</p>
-            <div class="card__links">
-              <a class="btn btn--primary btn--sm" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download for Windows</a>
-              <a class="btn btn--ghost btn--sm" href="https://github.com/KofiFS/clutch">Source on GitHub</a>
-            </div>
+        <div class="product__body">
+          <div class="product__top">
+            <img src="/assets/clutch-icon.png" alt="" width="44" height="44">
+            <span class="product__tag">Out now · free</span>
+            <span class="pill pill--live">v0.1.6</span>
           </div>
+          <h3>Clutch</h3>
+          <p><b>The game clip recorder you can tell what to clip.</b> An always-on replay buffer that is light like NVIDIA's recorder and social like Medal, with no ads you cannot turn off. Describe what you want kept in plain English, or let it clip itself when you and your friends suddenly get loud. It reads your existing Medal, OBS and NVIDIA clips in place, so nothing is copied, moved or deleted.</p>
           <ul class="feats">
-            <li>Clip hotkey saves the seconds before and after, and you can change the length mid-game</li>
-            <li>Clips that make themselves when you or your friends suddenly get loud</li>
-            <li>Describe what to clip in plain English, like "my kills, never menus"</li>
+            <li>Clip hotkey saves the seconds before and after, adjustable mid-game</li>
+            <li>Automatic clipping on hype moments and conversation, no AI needed</li>
             <li>Per-game profiles and automatic game detection</li>
-            <li>Built-in editor with 9:16 crops for Shorts and TikTok</li>
-            <li>Posts to Discord and uploads to YouTube, now or scheduled</li>
+            <li>Built-in 9:16 editor for Shorts and TikTok</li>
+            <li>Posts to Discord, uploads to YouTube on a schedule</li>
+            <li>GPU encoding through NVENC, AMF and Quick Sync</li>
           </ul>
+          <p class="product__meta">Electron, React and TypeScript · GPL-3.0 · Windows 10 and 11 · six releases in five days</p>
+          <div class="product__links">
+            <a class="btn btn--primary btn--sm" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download for Windows</a>
+            <a class="btn btn--ghost btn--sm" href="https://github.com/KofiFS/clutch">Source on GitHub</a>
+          </div>
         </div>
       </article>
 
+      <article class="product product--flip reveal">
+        <div class="product__media">
+          <img src="/assets/juicicora-shot.jpg" alt="Juicicora gameplay: a small glossy creature on chalk cliffs under hand-painted trees" loading="lazy" width="1280" height="720">
+        </div>
+        <div class="product__body">
+          <div class="product__top">
+            <span class="product__tag">In development</span>
+            <span class="pill pill--wip">Early Access Dec 2027</span>
+          </div>
+          <h3>Juicicora</h3>
+          <p><b>A cosy co-op adventure for up to four players.</b> You are a small glossy creature exploring hand-painted meadows, chalk cliffs and floating islands, dashing and wall-jumping between them, running missions and mini-games, and mixing fruit power-ups at an alchemy table. Befriend the villagers, travel by portal, and collect outfits worth showing off.</p>
+          <ul class="feats">
+            <li>Four-player online co-op with missions and mini-games</li>
+            <li>Elemental enemies with counter rules, bosses and duels</li>
+            <li>A persistent world clock with day and night</li>
+            <li>Collectible cosmetics, emotes and fruit power-ups</li>
+            <li>Portals between hand-built worlds</li>
+            <li>Built on Unreal Engine 5.6 in C++</li>
+          </ul>
+          <p class="product__meta">Unreal Engine 5.6 · C++ · replicated multiplayer · the deepest systems work I have going</p>
+          <div class="product__links">
+            <a class="btn btn--primary btn--sm" href="https://store.steampowered.com/app/5087380/">Wishlist on Steam</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RECENT LAUNCHES ============================ -->
+<section class="section" id="recent">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="kicker">Also shipping</p>
+      <h2>Two games launched this month.</h2>
+    </div>
+    <div class="now">
       <article class="card reveal">
         <div class="card__top">
           <h3>I Can't See You</h3>
@@ -152,25 +192,12 @@
           <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/4895890/">View on Steam</a>
         </div>
       </article>
-
-      <article class="card reveal">
-        <div class="card__top">
-          <h3>Juicicora</h3>
-          <span class="pill pill--wip">In development</span>
-        </div>
-        <p>A cosy co-op adventure for up to four players. You are a small glossy creature exploring hand-painted meadows, chalk cliffs and floating islands, running missions and mini-games and mixing fruit power-ups at an alchemy table.</p>
-        <p class="card__meta">Unreal Engine 5.6 · C++ · the deepest systems work I have going · Early Access planned for December 2027</p>
-        <div class="card__links">
-          <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/5087380/">Wishlist on Steam</a>
-        </div>
-      </article>
-
     </div>
   </div>
 </section>
 
 <!-- ============================ GAMES ============================ -->
-<section class="section" id="games">
+<section class="section section--raised" id="games">
   <div class="wrap">
     <div class="section__head reveal">
       <p class="kicker">The catalogue</p>
