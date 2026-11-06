@@ -1,259 +1,207 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Start a project — Kofi Shang</title>
 <meta name="description" content="Tell Kofi Shang what you are building. Your brief goes straight to his inbox: contract engineering, game development, AI products or a full-time role.">
 <link rel="canonical" href="https://kofifshang.dev/start">
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kofi Shang">
 <meta property="og:title" content="Start a project — Kofi Shang">
 <meta property="og:description" content="Tell Kofi Shang what you are building. Your brief goes straight to his inbox: contract engineering, game development, AI products or a full-time role.">
 <meta property="og:url" content="https://kofifshang.dev/start">
-<meta property="og:image" content="https://kofifshang.dev/assets/portrait.jpg">
-<meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0C0C0E">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<meta property="og:image" content="https://kofifshang.dev/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Zen+Old+Mincho:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer></script>
 </head>
 <body>
-<x-dc>
-<helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { margin: 0; background: #0C0C0E; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-    * { box-sizing: border-box; }
-    a { color: #8993FF; text-decoration: none; }
-    a:hover { color: #B4BBFF; }
-    p { margin: 0; text-wrap: pretty; }
-    h1, h2, h3 { margin: 0; font-family: 'Zen Old Mincho', Georgia, 'Times New Roman', serif; font-weight: 400; }
-    button, input, textarea, select { font-family: inherit; }
-    button { cursor: pointer; }
-    :focus-visible { outline: 2px solid #4A5BFF; outline-offset: 3px; }
-    ::selection { background: rgba(74,91,255,0.35); }
-    input::placeholder, textarea::placeholder { color: rgba(242,239,232,0.34) }
-    input:focus, textarea:focus { outline: none; border-color: #4A5BFF }
-  </style>
-</helmet>
 
-<div style="width: 100%; background: #0C0C0E; color: #F2EFE8; min-height: 100vh; overflow-x: hidden">
+<a class="skip" href="#main">Skip to content</a>
 
-  <div style="border-bottom: 1px solid rgba(242,239,232,0.10)">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 18px clamp(20px, 5vw, 64px)">
-      <a href="/" style="display: flex; align-items: center; gap: 13px; color: inherit">
-        <img src="logo-white.png" alt="Shangko mark" style="width: 32px; height: 32px; display: block">
-        <span style="display: flex; flex-direction: column; gap: 1px">
-          <span style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 17px; letter-spacing: 0.04em; color: #F2EFE8">Kofi Shang</span>
-          <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,239,232,0.56)">Shangko Co</span>
-        </span>
-      </a>
-      <a href="/" style="font-size: 13px; letter-spacing: 0.06em; color: rgba(242,239,232,0.66); white-space: nowrap">← Back to the site</a>
+<header class="nav nav--solid">
+  <div class="wrap wrap--wide nav__inner">
+    <a class="brand" href="/" aria-label="Kofi Shang, home">
+      <img src="/logo-white.png" alt="" width="30" height="30">
+      <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a class="nav__link" href="/work">Work</a>
+      <a class="nav__link" href="/games">Games</a>
+      <a class="nav__link" href="/about">About</a>
+      <a class="btn btn--light btn--sm nav__cta" href="/start" aria-current="page">Get in touch</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links" aria-label="Menu">
+      <a href="/" style="--i:0">Home<span>01</span></a>
+      <a href="/work" style="--i:1">Work<span>02</span></a>
+      <a href="/games" style="--i:2">Games<span>03</span></a>
+      <a href="/about" style="--i:3">About<span>04</span></a>
+      <a href="/start" aria-current="page" style="--i:4">Contact<span>05</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <div class="menu__social">
+      <a href="https://github.com/KofiFS" rel="noopener">GitHub</a>
+      <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam</a>
+      <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn</a>
+      <a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
     </div>
   </div>
-
-  <div style="position: relative; overflow: hidden">
-    <div style="position: absolute; inset: 0; background: radial-gradient(800px 460px at 82% -10%, rgba(74,91,255,0.16) 0%, rgba(74,91,255,0) 70%); pointer-events: none"></div>
-    <img src="logo-white.png" alt="" style="position: absolute; top: -140px; right: -150px; width: clamp(300px, 40vw, 560px); height: clamp(300px, 40vw, 560px); opacity: 0.05; pointer-events: none">
-
-    <div style="position: relative; max-width: 1100px; margin: 0 auto; padding: clamp(44px, 6vw, 80px) clamp(20px, 5vw, 64px) clamp(64px, 8vw, 110px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(36px, 5vw, 72px); align-items: start">
-
-      <div style="display: flex; flex-direction: column; gap: 22px; position: sticky; top: 32px">
-        <div style="display: flex; align-items: center; gap: 14px">
-          <span style="width: 46px; height: 1px; background: linear-gradient(90deg, rgba(74,91,255,0) 0%, #4A5BFF 100%); display: block"></span>
-          <span style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #8993FF">Start a project</span>
-        </div>
-        <h1 style="font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.014em">Tell me what you are building.</h1>
-        <p style="font-size: 16px; line-height: 1.68; color: rgba(242,239,232,0.68); max-width: 460px">Six questions. Answer what you know and leave the rest — a paragraph about the actual problem is worth more than a filled-in budget field. I read every one myself and reply within two business days, including the honest no.</p>
-        <div style="display: flex; flex-direction: column; gap: 10px; border-left: 1px solid rgba(242,239,232,0.18); padding-left: 22px; margin-top: 6px">
-          <span style="font-size: 13px; color: rgba(242,239,232,0.56)">Or skip the form entirely:</span>
-          <a href="mailto:kofifshang@gmail.com" style="font-family: 'Zen Old Mincho', Georgia, serif; font-size: 20px; color: #F2EFE8; word-break: break-word">kofifshang@gmail.com</a>
-          <span style="font-size: 13px; line-height: 1.6; color: rgba(242,239,232,0.5)">Remote, United States. Based in Pennsylvania.</span>
-        </div>
-      </div>
-
-      <div style="background: #111117; border: 1px solid rgba(242,239,232,0.14); border-radius: 8px; padding: clamp(24px, 3vw, 38px)">
-        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-          <div role="status" aria-live="polite" style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start">
-            <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8993FF">Message sent</span>
-            <h2 style="font-size: 28px; line-height: 1.16">{{ sentTitle }}</h2>
-            <p style="font-size: 15px; line-height: 1.66; color: rgba(242,239,232,0.66)">I read every enquiry myself and reply within two business days, including the honest no. My reply comes from kofifshang@gmail.com, so check your spam folder if you don't see it.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px">
-              <a href="/" style="font-size: 14px; font-weight: 600; color: #FFFFFF; background: #4A5BFF; border-radius: 8px; padding: 14px 24px; white-space: nowrap" style-hover="background: #3A49E0">Back to the site</a>
-              <button onClick="{{ reset }}" style="font-size: 14px; color: #F2EFE8; background: transparent; border: 1px solid rgba(242,239,232,0.26); border-radius: 8px; padding: 13px 20px; white-space: nowrap" style-hover="border-color: rgba(242,239,232,0.6)">Send another</button>
-            </div>
-          </div>
-        </sc-if>
-
-        <sc-if value="{{ editing }}" hint-placeholder-val="{{ true }}">
-          <div style="display: flex; flex-direction: column; gap: 22px">
-              <label aria-hidden="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden">
-                <span>Leave this field empty</span>
-                <input value="{{ hp }}" onChange="{{ setHp }}" name="website" tabindex="-1" autocomplete="off">
-              </label>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-              <label style="display: flex; flex-direction: column; gap: 8px">
-                <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">Your name</span>
-                <input value="{{ f.name }}" onChange="{{ set.name }}" placeholder="Jordan Ellis" style="background: #0C0C0E; border: 1px solid rgba(242,239,232,0.18); border-radius: 8px; padding: 13px 14px; font-size: 15px; color: #F2EFE8; width: 100%">
-              </label>
-              <label style="display: flex; flex-direction: column; gap: 8px">
-                <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">Email</span>
-                <input value="{{ f.email }}" onChange="{{ set.email }}" type="email" placeholder="jordan@company.com" style="background: #0C0C0E; border: 1px solid rgba(242,239,232,0.18); border-radius: 8px; padding: 13px 14px; font-size: 15px; color: #F2EFE8; width: 100%">
-              </label>
-            </div>
-
-            <label style="display: flex; flex-direction: column; gap: 8px">
-              <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">Company or project <span style="text-transform: none; letter-spacing: 0; color: rgba(242,239,232,0.36)">— optional</span></span>
-              <input value="{{ f.company }}" onChange="{{ set.company }}" placeholder="Northwind Energy" style="background: #0C0C0E; border: 1px solid rgba(242,239,232,0.18); border-radius: 8px; padding: 13px 14px; font-size: 15px; color: #F2EFE8; width: 100%">
-            </label>
-
-            <div style="display: flex; flex-direction: column; gap: 10px">
-              <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">What kind of work</span>
-              <div style="display: flex; flex-wrap: wrap; gap: 8px">
-                <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="5">
-                  <button onClick="{{ k.pick }}" style="font-size: 13px; border-radius: 8px; padding: 11px 16px; white-space: nowrap; background: {{ k.bg }}; border: 1px solid {{ k.border }}; color: {{ k.color }}">{{ k.label }}</button>
-                </sc-for>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-              <label style="display: flex; flex-direction: column; gap: 8px">
-                <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">Timeline</span>
-                <input value="{{ f.timeline }}" onChange="{{ set.timeline }}" placeholder="Kickoff in October, ship by Q1" style="background: #0C0C0E; border: 1px solid rgba(242,239,232,0.18); border-radius: 8px; padding: 13px 14px; font-size: 15px; color: #F2EFE8; width: 100%">
-              </label>
-              <label style="display: flex; flex-direction: column; gap: 8px">
-                <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">Budget range <span style="text-transform: none; letter-spacing: 0; color: rgba(242,239,232,0.36)">— optional</span></span>
-                <input value="{{ f.budget }}" onChange="{{ set.budget }}" placeholder="Rough band is fine" style="background: #0C0C0E; border: 1px solid rgba(242,239,232,0.18); border-radius: 8px; padding: 13px 14px; font-size: 15px; color: #F2EFE8; width: 100%">
-              </label>
-            </div>
-
-            <label style="display: flex; flex-direction: column; gap: 8px">
-              <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,232,0.6)">The problem</span>
-              <textarea value="{{ f.detail }}" onChange="{{ set.detail }}" rows="7" placeholder="What are you building, what is in the way, and what does done look like? Existing stack and team size help too." style="background: #0C0C0E; border: 1px solid rgba(242,239,232,0.18); border-radius: 8px; padding: 13px 14px; font-size: 15px; line-height: 1.6; color: #F2EFE8; width: 100%; resize: vertical; min-height: 150px"></textarea>
-            </label>
-
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 2px">
-              <button onClick="{{ submit }}" disabled="{{ sending }}" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: {{ submitBg }}; border: 0; border-radius: 8px; padding: 16px 28px; white-space: nowrap" style-hover="background: #3A49E0">{{ submitLabel }}</button>
-              <span role="status" aria-live="polite" style="font-size: 13px; line-height: 1.55; color: {{ hintColor }}">{{ hint }}</span>
-            </div>
-
-          </div>
-        </sc-if>
-      </div>
-
-    </div>
-  </div>
-
-  <div style="border-top: 1px solid rgba(242,239,232,0.10)">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 26px clamp(20px, 5vw, 64px)">
-      <div style="display: flex; align-items: center; gap: 12px">
-        <img src="logo-white.png" alt="" style="width: 22px; height: 22px; opacity: 0.7; display: block">
-        <span style="font-size: 12px; color: rgba(242,239,232,0.56)">Shangko Co · Pennsylvania</span>
-      </div>
-      <span style="font-size: 12px; color: rgba(242,239,232,0.54)">© 2026 Kofi Shang. All rights reserved.</span>
-    </div>
-  </div>
-
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100,&quot;height&quot;:900}}">
-const KINDS = [
-  'Backend / platform engineering',
-  'Full stack product work',
-  'Game development or release',
-  'AI product, end to end',
-  'Full-time role',
-  'Something else'
-];
 
-const TO = 'kofifshang@gmail.com';
-const EMPTY = { name: '', email: '', company: '', kind: '', timeline: '', budget: '', detail: '' };
-const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+<main id="main">
+<section class="phero" style="padding-bottom:var(--section)">
+  <div class="hero__light hero__light--a" aria-hidden="true"></div>
+  <div class="wrap contact-grid">
+    <div class="contact-aside">
+      <p class="label label--tint" data-reveal="fade">Start a project</p>
+      <h1 data-reveal>Tell me what you’re building.</h1>
+      <p data-reveal style="--i:1">Six questions. Answer what you know and leave the rest: a paragraph about the actual problem is worth more than a filled-in budget field.</p>
+      <ol class="steps" data-reveal style="--i:2">
+        <li><span>01</span>Your brief goes straight to my inbox. No email app needed.</li>
+        <li><span>02</span>I read every one myself.</li>
+        <li><span>03</span>You get a reply within two business days, including the honest no.</li>
+      </ol>
+      <div class="direct" data-reveal style="--i:3">
+        <span class="label">Or skip the form</span>
+        <div class="copy"><a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a><button type="button" data-copy="kofifshang@gmail.com" aria-label="Copy email address"><svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="7.5" height="7.5" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg><span>Copy</span></button></div>
+        <span class="cta__note">Remote, United States. Based in Pennsylvania.</span>
+      </div>
+    </div>
 
-class Component extends DCLogic {
-  state = { f: Object.assign({}, EMPTY), hp: '', sending: false, sent: false, error: '' };
+    <div data-reveal="scale" style="--i:1">
+      <noscript><p class="form__status" style="margin-bottom:1rem">The form needs JavaScript. You can write to <a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a> instead.</p></noscript>
+      <form class="form" id="brief" novalidate aria-describedby="form-status">
+        <label class="hp" aria-hidden="true"><span>Leave this field empty</span><input name="website" tabindex="-1" autocomplete="off"></label>
 
-  // When the page opened; the server ignores briefs filled in implausibly fast.
-  t0 = Date.now();
+        <div class="form__row">
+          <label class="field" for="name">
+            <span>Your name <span class="req" aria-hidden="true">*</span></span>
+            <input class="input" id="name" name="name" autocomplete="name" placeholder="Jordan Ellis" required maxlength="120" aria-describedby="name-err">
+            <span class="field__err" id="name-err" role="alert"></span>
+          </label>
+          <label class="field" for="email">
+            <span>Email <span class="req" aria-hidden="true">*</span></span>
+            <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="jordan@company.com" required maxlength="254" aria-describedby="email-err">
+            <span class="field__err" id="email-err" role="alert"></span>
+          </label>
+        </div>
 
-  setField = (k, v) => this.setState(s => ({ f: Object.assign({}, s.f, { [k]: v }), error: '' }));
+        <label class="field" for="company">
+          <span>Company or project <span class="opt">(optional)</span></span>
+          <input class="input" id="company" name="company" autocomplete="organization" placeholder="Northwind Energy" maxlength="160">
+        </label>
 
-  submit = async () => {
-    if (this.state.sending) return;
-    const f = this.state.f;
-    if (!f.name.trim() || !f.email.trim() || !f.detail.trim()) {
-      this.setState({ error: 'Name, email and a description of the problem, please — the rest is optional.' });
-      return;
-    }
-    if (!EMAIL_OK.test(f.email.trim())) {
-      this.setState({ error: 'That email address does not look right.' });
-      return;
-    }
-    this.setState({ sending: true, error: '' });
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.assign({}, f, { website: this.state.hp, elapsed: Date.now() - this.t0 }))
-      });
-      let data = {};
-      try { data = await res.json(); } catch (e) {}
-      if (res.ok && data.ok) {
-        this.setState({ sending: false, sent: true });
-      } else {
-        const why = data && data.error ? data.error + ' ' : 'Something went wrong on my end. ';
-        this.setState({ sending: false, error: why + 'You can also write to ' + TO + '.' });
-      }
-    } catch (e) {
-      this.setState({ sending: false, error: 'Could not reach the server. Check your connection, or write to ' + TO + '.' });
-    }
-  };
+        <fieldset class="field">
+          <legend>What kind of work <span class="opt">(optional)</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="kind" value="Backend / platform engineering"><span>Backend / platform engineering</span></label>
+            <label class="chip"><input type="radio" name="kind" value="Full stack product work"><span>Full stack product work</span></label>
+            <label class="chip"><input type="radio" name="kind" value="Game development or release"><span>Game development or release</span></label>
+            <label class="chip"><input type="radio" name="kind" value="AI product, end to end"><span>AI product, end to end</span></label>
+            <label class="chip"><input type="radio" name="kind" value="Full-time role"><span>Full-time role</span></label>
+            <label class="chip"><input type="radio" name="kind" value="Something else"><span>Something else</span></label>
+          </div>
+        </fieldset>
 
-  reset = () => this.setState({ sent: false, error: '', f: Object.assign({}, EMPTY) });
+        <div class="form__row">
+          <label class="field" for="timeline">
+            <span>Timeline <span class="opt">(optional)</span></span>
+            <input class="input" id="timeline" name="timeline" placeholder="Kick off next month, ship by Q2" maxlength="160">
+          </label>
+          <label class="field" for="budget">
+            <span>Budget range <span class="opt">(optional)</span></span>
+            <input class="input" id="budget" name="budget" placeholder="A rough band is fine" maxlength="120">
+          </label>
+        </div>
 
-  renderVals() {
-    const { f, sent, sending, error, hp } = this.state;
-    const first = (f.name || '').trim().split(' ')[0];
-    return {
-      f,
-      sent,
-      editing: !sent,
-      sending,
-      hp,
-      setHp: e => this.setState({ hp: e.target.value }),
-      set: {
-        name: e => this.setField('name', e.target.value),
-        email: e => this.setField('email', e.target.value),
-        company: e => this.setField('company', e.target.value),
-        timeline: e => this.setField('timeline', e.target.value),
-        budget: e => this.setField('budget', e.target.value),
-        detail: e => this.setField('detail', e.target.value)
-      },
-      kinds: KINDS.map(label => {
-        const on = f.kind === label;
-        return {
-          label,
-          bg: on ? 'rgba(74,91,255,0.18)' : 'transparent',
-          border: on ? '#4A5BFF' : 'rgba(242,239,232,0.2)',
-          color: on ? '#F2EFE8' : 'rgba(242,239,232,0.7)',
-          pick: () => this.setField('kind', on ? '' : label)
-        };
-      }),
-      submit: this.submit,
-      reset: this.reset,
-      submitLabel: sending ? 'Sending…' : 'Send to Kofi',
-      submitBg: sending ? '#2F3AA8' : '#4A5BFF',
-      sentTitle: first ? 'Thanks, ' + first + '. It is in my inbox.' : 'Thanks. It is in my inbox.',
-      hint: error || 'Goes straight to my inbox. No email app needed.',
-      hintColor: error ? '#FF9A8B' : 'rgba(242,239,232,0.5)'
-    };
-  }
-}
-</script>
+        <label class="field" for="detail">
+          <span>The problem <span class="req" aria-hidden="true">*</span></span>
+          <textarea class="input" id="detail" name="detail" rows="7" required maxlength="8000" aria-describedby="detail-hint detail-err" placeholder="What are you building, what is in the way, and what does done look like?"></textarea>
+          <span class="field__hint" id="detail-hint">Your existing stack and team size help too.</span>
+          <span class="field__err" id="detail-err" role="alert"></span>
+        </label>
+
+        <div class="form__foot">
+          <button class="btn btn--primary" type="submit"><span class="btn__label">Send to Kofi</span><span class="spin" aria-hidden="true"></span><svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite">Fields marked * are required. Goes straight to my inbox.</p>
+        </div>
+      </form>
+
+      <div class="sent" id="sent" tabindex="-1" hidden>
+        <span class="sent__icon"><svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>
+        <p class="label label--tint">Message sent</p>
+        <h2 id="sent-title">Thanks. It’s in my inbox.</h2>
+        <p>I read every enquiry myself and reply within two business days, including the honest no. My reply comes from kofifshang@gmail.com, so check your spam folder if you don’t see it.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/">Back to the site <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <button class="btn btn--ghost" type="button" id="send-another">Send another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap wrap--wide">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a class="brand" href="/" aria-label="Kofi Shang, home">
+          <img src="/logo-white.png" alt="" width="30" height="30">
+          <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+        </a>
+        <p>Software engineer and independent game developer, building products and games under Shangko Co from Pennsylvania.</p>
+      </div>
+      <nav class="foot__col" aria-labelledby="f-site">
+        <h2 id="f-site">Site</h2>
+        <a href="/">Home</a>
+        <a href="/work">Work</a>
+        <a href="/games">Games</a>
+        <a href="/about">About</a>
+        <a href="/start">Contact</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-work">
+        <h2 id="f-work">Case studies</h2>
+        <a href="/work/clutch">Clutch</a>
+        <a href="/work/juicicora">Juicicora</a>
+        <a href="/work/i-cant-see-you">I Can't See You</a>
+        <a href="/work/forest-quest-88">Forest Quest '88</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-else">
+        <h2 id="f-else">Elsewhere</h2>
+        <a href="https://github.com/KofiFS" rel="noopener">GitHub <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="mailto:kofifshang@gmail.com">Email</a>
+      </nav>
+    </div>
+    <svg class="foot__word" viewBox="0 0 1000 180" aria-hidden="true" focusable="false"><text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">Kofi Shang</text></svg>
+    <div class="foot__bar">
+      <span>© <span data-year>2026</span> Kofi Shang · Shangko Co</span>
+      <span>Built by hand: no framework, no build step.</span>
+      <a href="#main">Back to top <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

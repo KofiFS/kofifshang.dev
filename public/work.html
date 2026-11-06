@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Work — Kofi Shang</title>
+<meta name="description" content="Case studies by Kofi Shang: Clutch, an open-source clip recorder; Juicicora, a co-op adventure in Unreal Engine; and the games I Can't See You and Forest Quest '88.">
+<link rel="canonical" href="https://kofifshang.dev/work">
+<link rel="icon" href="/assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kofi Shang">
+<meta property="og:title" content="Work — Kofi Shang">
+<meta property="og:description" content="Case studies by Kofi Shang: Clutch, an open-source clip recorder; Juicicora, a co-op adventure in Unreal Engine; and the games I Can't See You and Forest Quest '88.">
+<meta property="og:url" content="https://kofifshang.dev/work">
+<meta property="og:image" content="https://kofifshang.dev/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Zen+Old+Mincho:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer></script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap wrap--wide nav__inner">
+    <a class="brand" href="/" aria-label="Kofi Shang, home">
+      <img src="/logo-white.png" alt="" width="30" height="30">
+      <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a class="nav__link" href="/work" aria-current="page">Work</a>
+      <a class="nav__link" href="/games">Games</a>
+      <a class="nav__link" href="/about">About</a>
+      <a class="btn btn--light btn--sm nav__cta" href="/start">Get in touch</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links" aria-label="Menu">
+      <a href="/" style="--i:0">Home<span>01</span></a>
+      <a href="/work" aria-current="page" style="--i:1">Work<span>02</span></a>
+      <a href="/games" style="--i:2">Games<span>03</span></a>
+      <a href="/about" style="--i:3">About<span>04</span></a>
+      <a href="/start" style="--i:4">Contact<span>05</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <div class="menu__social">
+      <a href="https://github.com/KofiFS" rel="noopener">GitHub</a>
+      <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam</a>
+      <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn</a>
+      <a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="phero">
+  <div class="hero__guides" aria-hidden="true"></div>
+  <div class="hero__light hero__light--a" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="shead__rail" data-reveal="fade"><span class="label">Work</span></div>
+    <div class="phero__body">
+      <h1 data-reveal>Products, games and the <em>engineering</em> behind them.</h1>
+      <p data-reveal style="--i:1">Four case studies: two products in active development and two games launched this October. Each covers what the thing is, what I built, and the decisions I would walk another engineer through.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-label="Case studies">
+  <div class="wrap">
+    <div class="cases">
+      <a class="case" href="/work/clutch" style="--case-tint:#26BBFF;--case-lit:#7CD6FF;--case-glow:rgba(38,187,255,.4)">
+        <div class="case__media" data-reveal="scale"><img src="/assets/work/clutch/library-1440.webp" srcset="/assets/work/clutch/library-960.webp 960w, /assets/work/clutch/library-1440.webp 1440w" sizes="(max-width: 860px) 100vw, 60vw" alt="The Clutch library with clips sorted by game" width="1440" height="810" loading="lazy" decoding="async"></div>
+        <div class="case__body" data-reveal style="--i:1">
+          <span class="case__num">01 / 04 · Desktop app · Out now</span>
+          <h2>Clutch</h2>
+          <p>A free, open-source game clip recorder for Windows that you can tell what to clip. GPU capture into a ring buffer, clips that save instantly, and triggers that need no AI.</p>
+          <div class="tags"><span class="tag">Electron</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">FFmpeg</span></div>
+          <span class="more">Read the case study <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+      <a class="case" href="/work/juicicora" style="--case-tint:#5EC8F2;--case-lit:#9BE0FF;--case-glow:rgba(94,200,242,.4)">
+        <div class="case__media" data-reveal="scale"><img src="/assets/work/juicicora/g-square-1600.webp" srcset="/assets/work/juicicora/g-square-960.webp 960w, /assets/work/juicicora/g-square-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="Juicicora: Souls in the stone plaza under a ruined arch" width="1600" height="900" loading="lazy" decoding="async"></div>
+        <div class="case__body" data-reveal style="--i:1">
+          <span class="case__num">02 / 04 · Game · Early Access, Dec 2027</span>
+          <h2>Juicicora</h2>
+          <p>A cosy co-op adventure for up to five players in Unreal Engine 5.6: a juice press that turns fruit into powers, twenty villagers with their own days, and missions out at sea.</p>
+          <div class="tags"><span class="tag">Unreal Engine 5.6</span><span class="tag">C++</span><span class="tag">Multiplayer</span></div>
+          <span class="more">Read the case study <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+      <a class="case" href="/work/i-cant-see-you" style="--case-tint:#E5322D;--case-lit:#FF7A75;--case-glow:rgba(229,50,45,.4)">
+        <div class="case__media" data-reveal="scale" style="background:#000"><img src="/assets/work/i-cant-see-you/header.webp" alt="I Can't See You key art" width="1024" height="384" loading="lazy" decoding="async" style="object-fit:contain;background:#000"></div>
+        <div class="case__body" data-reveal style="--i:1">
+          <span class="case__num">03 / 04 · Game · Launched Oct 2026</span>
+          <h2>I Can't See You</h2>
+          <p>A multiplayer shooter in total darkness. The interesting part is the hearing system: a server-side noise bus that decides exactly what each player gets to hear.</p>
+          <div class="tags"><span class="tag">Unreal Engine 5.5</span><span class="tag">C++</span><span class="tag">Steam networking</span></div>
+          <span class="more">Read the case study <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+      <a class="case" href="/work/forest-quest-88" style="--case-tint:#3DFF6E;--case-lit:#8DFFA8;--case-glow:rgba(61,255,110,.3)">
+        <div class="case__media" data-reveal="scale"><img src="/assets/work/forest-quest-88/journey-1600.webp" srcset="/assets/work/forest-quest-88/journey-960.webp 960w, /assets/work/forest-quest-88/journey-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="Forest Quest '88 gameplay on a green CRT" width="1600" height="900" loading="lazy" decoding="async"></div>
+        <div class="case__body" data-reveal style="--i:1">
+          <span class="case__num">04 / 04 · Game · Launched Oct 2026</span>
+          <h2>Forest Quest '88</h2>
+          <p>A comedy text adventure that started with a local AI narrator and shipped as a 372-node story graph with no AI at runtime, wrapped in Tauri for Steam.</p>
+          <div class="tags"><span class="tag">Vite</span><span class="tag">JavaScript</span><span class="tag">Tauri</span><span class="tag">Rust</span></div>
+          <span class="more">Read the case study <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="tools-title">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">05</span><span class="label">Tools</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="tools-title">Things I built for myself first.</h2>
+      <p>Not everything needs a case study. These are smaller projects, each written because I needed it.</p>
+      </div>
+    </header>
+    <div class="index">
+      <div class="index__item" data-reveal><span class="index__num">01</span><h3>SysMon</h3><p>A dark, card-based replacement for Windows Task Manager that shows real sensors, temperatures, fan speeds and power draw, next to the usual graphs.</p><div class="index__foot"><span class="tag">C#</span><span class="tag">.NET 10</span><span class="tag">LibreHardwareMonitor</span></div></div>
+      <div class="index__item" data-reveal style="--i:1"><span class="index__num">02</span><h3>Mirage</h3><p>A call copilot that stays invisible to screen sharing. It transcribes locally, works out who is speaking, and answers from your own notes.</p><div class="index__foot"><span class="tag">Electron</span><span class="tag">Local Whisper</span></div></div>
+      <div class="index__item" data-reveal><span class="index__num">03</span><h3>D&amp;D Character Sheet</h3><p>An auto-saving fifth-edition sheet with the official rules built in, so it still works at the table with no signal.</p><div class="index__foot"><a class="more more--out" href="https://kofifs.github.io/DND/" rel="noopener">Open it <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a></div></div>
+      <div class="index__item" data-reveal style="--i:1"><span class="index__num">04</span><h3>Risk-first trading agent</h3><p>A paper-only bot whose risk engine outranks the model: immutable limits, a daily-loss halt, and no code path that lets model output widen a limit.</p><div class="index__foot"><span class="tag">Python</span><span class="tag">Backtested</span><span class="tag">Paper only</span></div></div>
+    </div>
+    <div class="ledger__foot" style="margin-top:var(--s-7)">
+      <a class="more" href="/games">See all nine games on Steam <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta" id="contact" aria-labelledby="cta-title">
+  <img class="cta__mark" src="/logo-white.png" alt="" aria-hidden="true" width="320" height="320" loading="lazy">
+  <div class="wrap">
+    <div class="cta__inner">
+      <p class="label label--tint" data-reveal>Work with me</p>
+      <h2 id="cta-title" data-reveal style="--i:1">Tell me what you’re <em>building.</em></h2>
+      <p data-reveal style="--i:2">I take on contract engineering, game development and release work, and AI products that have to hold up with real users. Send a paragraph about the problem and I’ll tell you honestly whether I’m the right person for it.</p>
+      <div class="cta__row" data-reveal style="--i:3">
+        <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <div class="copy"><a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a><button type="button" data-copy="kofifshang@gmail.com" aria-label="Copy email address"><svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="7.5" height="7.5" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg><span>Copy</span></button></div>
+      </div>
+      <p class="cta__note" data-reveal style="--i:4">I read every enquiry myself and reply within two business days.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap wrap--wide">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a class="brand" href="/" aria-label="Kofi Shang, home">
+          <img src="/logo-white.png" alt="" width="30" height="30">
+          <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+        </a>
+        <p>Software engineer and independent game developer, building products and games under Shangko Co from Pennsylvania.</p>
+      </div>
+      <nav class="foot__col" aria-labelledby="f-site">
+        <h2 id="f-site">Site</h2>
+        <a href="/">Home</a>
+        <a href="/work">Work</a>
+        <a href="/games">Games</a>
+        <a href="/about">About</a>
+        <a href="/start">Contact</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-work">
+        <h2 id="f-work">Case studies</h2>
+        <a href="/work/clutch">Clutch</a>
+        <a href="/work/juicicora">Juicicora</a>
+        <a href="/work/i-cant-see-you">I Can't See You</a>
+        <a href="/work/forest-quest-88">Forest Quest '88</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-else">
+        <h2 id="f-else">Elsewhere</h2>
+        <a href="https://github.com/KofiFS" rel="noopener">GitHub <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="mailto:kofifshang@gmail.com">Email</a>
+      </nav>
+    </div>
+    <svg class="foot__word" viewBox="0 0 1000 180" aria-hidden="true" focusable="false"><text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">Kofi Shang</text></svg>
+    <div class="foot__bar">
+      <span>© <span data-year>2026</span> Kofi Shang · Shangko Co</span>
+      <span>Built by hand: no framework, no build step.</span>
+      <a href="#main">Back to top <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

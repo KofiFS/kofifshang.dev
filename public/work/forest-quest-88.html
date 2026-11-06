@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forest Quest '88 case study — Kofi Shang</title>
+<meta name="description" content="Forest Quest '88 is a deadpan comedy text adventure by Kofi Shang: a 372-node story graph with 95 endings and no AI at runtime, built with Vite and shipped through Tauri to Steam.">
+<link rel="canonical" href="https://kofifshang.dev/work/forest-quest-88">
+<link rel="icon" href="/assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kofi Shang">
+<meta property="og:title" content="Forest Quest '88 case study — Kofi Shang">
+<meta property="og:description" content="Forest Quest '88 is a deadpan comedy text adventure by Kofi Shang: a 372-node story graph with 95 endings and no AI at runtime, built with Vite and shipped through Tauri to Steam.">
+<meta property="og:url" content="https://kofifshang.dev/work/forest-quest-88">
+<meta property="og:image" content="https://kofifshang.dev/assets/work/forest-quest-88/opening-1600.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Zen+Old+Mincho:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer></script>
+<style>:root{--tint:#3DFF6E;--tint-lit:#8DFFA8;--tint-glow:rgba(61,255,110,.22)}</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap wrap--wide nav__inner">
+    <a class="brand" href="/" aria-label="Kofi Shang, home">
+      <img src="/logo-white.png" alt="" width="30" height="30">
+      <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a class="nav__link" href="/work" aria-current="page">Work</a>
+      <a class="nav__link" href="/games">Games</a>
+      <a class="nav__link" href="/about">About</a>
+      <a class="btn btn--light btn--sm nav__cta" href="/start">Get in touch</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links" aria-label="Menu">
+      <a href="/" style="--i:0">Home<span>01</span></a>
+      <a href="/work" aria-current="page" style="--i:1">Work<span>02</span></a>
+      <a href="/games" style="--i:2">Games<span>03</span></a>
+      <a href="/about" style="--i:3">About<span>04</span></a>
+      <a href="/start" style="--i:4">Contact<span>05</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <div class="menu__social">
+      <a href="https://github.com/KofiFS" rel="noopener">GitHub</a>
+      <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam</a>
+      <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn</a>
+      <a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="cs-hero">
+  <div class="hero__guides" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb" data-reveal="fade"><a href="/work">Work</a><span aria-hidden="true">/</span><span aria-current="page">Forest Quest '88</span></nav>
+    <div class="cs-hero__grid">
+      <div class="cs-hero__title">
+        <p class="label label--tint" data-reveal="fade">Game · Launched 1 October 2026</p>
+        <h1 data-reveal>Forest Quest ’88</h1>
+        <p class="cs-hero__lede" data-reveal style="--i:1">A deadpan comedy text adventure on a green CRT. You wake in a forest and just want to get home to bed.</p>
+        <div class="btn-row" data-reveal style="--i:2"><a class="btn btn--primary" href="https://store.steampowered.com/app/4895890/" rel="noopener">View on Steam <svg class="btn__icon btn__icon--out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a></div>
+      </div>
+      <div class="cs-hero__side" data-reveal style="--i:2">
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Developer and publisher</dd></div>
+          <div><dt>Price</dt><dd>$1.99 on Steam</dd></div>
+          <div><dt>Built with</dt><dd>Vite, vanilla JavaScript and Tauri</dd></div>
+          <div><dt>Builds</dt><dd>Windows, macOS and Linux</dd></div>
+        </dl>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Vite</span><span class="tag">Canvas</span><span class="tag">Web Audio</span><span class="tag">Tauri</span><span class="tag">Rust</span><span class="tag">Steamworks</span><span class="tag">GitHub Actions</span></div>
+      </div>
+    </div>
+    <figure class="cs-media" data-reveal="scale">
+      <div class="frame frame--glow glow-host" style="background:#000;position:relative"><img src="/assets/work/forest-quest-88/opening-1600.webp" srcset="/assets/work/forest-quest-88/opening-960.webp 960w, /assets/work/forest-quest-88/opening-1600.webp 1600w" sizes="(max-width: 1320px) 100vw, 1200px" alt="Forest Quest '88: the opening scene in green CRT text with five numbered choices below a pixel-art viewport" width="1600" height="900" fetchpriority="high"><span aria-hidden="true" style="position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);pointer-events:none"></span></div>
+      <figcaption class="cs-media__cap"><span>The opening. Five choices every turn, or type your own.</span></figcaption>
+    </figure>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-overview">
+  <div class="wrap cs-block">
+    <div class="cs-block__rail" data-reveal="fade"><span class="shead__num">01</span><span class="label">Overview</span></div>
+    <div class="cs-block__body">
+      <h2 id="cs-overview" data-reveal>The forest has one rule.</h2>
+      
+      <div class="cs-prose" data-reveal style="--i:1">
+        <p class="big">Do anything, and it rearranges itself around you.</p>
+        <p>Home is in there somewhere. Every turn offers five actions, from weird and funny to normal, boring and outright negative; pick one with a click or a number key, or type your own. The journey is randomised, items drop into your inventory, a map and a journey log keep track, and there are three save slots with autosave.</p>
+        <p>The comedy is dry on purpose. It works because the game is confident, consistent and completely unhelpful, which turned out to be an engineering constraint as much as a writing one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" aria-label="Forest Quest '88 by the numbers">
+  <div class="wrap">
+    <div data-reveal><div class="numbers"><div><b>372</b><span>Story nodes in the shipped graph</span></div><div><b>95</b><span>Endings, most of them bad</span></div><div><b>11</b><span>Cryptids to meet, or not survive</span></div><div><b>10</b><span>Steam achievements</span></div></div></div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-eng">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">02</span><span class="label">Engineering</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="cs-eng">Funny is not a model’s job.</h2>
+      <p>The prototype and the shipped game are very different programs, and the difference is the most useful thing this project taught me.</p>
+      </div>
+    </header>
+    <div class="decisions">
+      <div class="decision" data-reveal><span class="decision__num">01</span><h3>Models understand; authored content performs</h3><div class="decision__body"><p>The prototype used a small embedding model, MiniLM through Transformers.js, <strong>only to understand</strong> what the player typed, by matching it to the nearest option. An optional local narrator ran through Ollama.</p><p>The rule I settled on: understanding the player is a model’s job, but being funny is not. A generative model tries to be coherent and helpful, which is exactly what kills the joke.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">02</span><h3>Ship the story, not the model</h3><div class="decision__body"><p>For release, the story was baked into a fixed graph: <strong>372 nodes, 95 endings, 11 cryptids and 8 enemies</strong>, with no AI at runtime. Players install nothing extra, it runs fully offline, and every run reads the way it was meant to.</p><p>The pixel viewport is pure JavaScript, so the whole game works the same everywhere.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">03</span><h3>A web game that ships like a desktop game</h3><div class="decision__body"><p>The game is Vite and vanilla JavaScript inside a <strong>Tauri</strong> shell. Pushing a version tag makes GitHub Actions build installers for Windows, macOS and Linux, plus the three raw archives that go to Steam’s depots. No Rust toolchain is needed on the development machine.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">04</span><h3>Achievements that survive being offline</h3><div class="decision__body"><p>Unlocks are saved locally first, then forwarded to Steamworks through a Tauri command backed by the <code>steamworks</code> Rust crate, compiled in only behind a cargo feature.</p><p>On every launch the game re-sends every achievement it has earned. Steam ignores repeats, so <strong>nothing is lost</strong> if Steam wasn’t reachable the first time, and without Steam both commands are harmless no-ops.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-gal">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">03</span><span class="label">Screens</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="cs-gal">On the CRT.</h2>
+      <p>Click any screen to see it larger.</p>
+      </div>
+    </header>
+    <div class="gallery"><button class="shot g-wide" type="button" data-full="/assets/work/forest-quest-88/journey-1600.webp" data-caption="A run in progress" data-reveal="scale"><img src="/assets/work/forest-quest-88/journey-1600.webp" srcset="/assets/work/forest-quest-88/journey-960.webp 960w, /assets/work/forest-quest-88/journey-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="A run in progress: the story so far and the next five choices" width="1600" height="900" loading="lazy" decoding="async"><span class="shot__cap pill">A run in progress</span></button><button class="shot " type="button" data-full="/assets/work/forest-quest-88/cryptid-1600.webp" data-caption="Cryptid encounter" data-reveal="scale"><img src="/assets/work/forest-quest-88/cryptid-1600.webp" srcset="/assets/work/forest-quest-88/cryptid-960.webp 960w, /assets/work/forest-quest-88/cryptid-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="A cryptid encounter: Mothman looms in red" width="1600" height="900" loading="lazy" decoding="async"><span class="shot__cap pill">Cryptid encounter</span></button><button class="shot " type="button" data-full="/assets/work/forest-quest-88/ending-1600.webp" data-caption="An ending" data-reveal="scale"><img src="/assets/work/forest-quest-88/ending-1600.webp" srcset="/assets/work/forest-quest-88/ending-960.webp 960w, /assets/work/forest-quest-88/ending-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="An ending: the living room was home all along" width="1600" height="900" loading="lazy" decoding="async"><span class="shot__cap pill">An ending</span></button><button class="shot g-half" type="button" data-full="/assets/work/forest-quest-88/map-1600.webp" data-caption="The map" data-reveal="scale"><img src="/assets/work/forest-quest-88/map-1600.webp" srcset="/assets/work/forest-quest-88/map-960.webp 960w, /assets/work/forest-quest-88/map-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="The map of neighbourhoods between the forest and home" width="1600" height="900" loading="lazy" decoding="async"><span class="shot__cap pill">The map</span></button><button class="shot g-half" type="button" data-full="/assets/work/forest-quest-88/inventory-1600.webp" data-caption="Inventory" data-reveal="scale"><img src="/assets/work/forest-quest-88/inventory-1600.webp" srcset="/assets/work/forest-quest-88/inventory-960.webp 960w, /assets/work/forest-quest-88/inventory-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="The inventory panel listing found items" width="1600" height="900" loading="lazy" decoding="async"><span class="shot__cap pill">Inventory</span></button></div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-links">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">04</span><span class="label">Links</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="cs-links">Play it.</h2>
+      <p>$1.99 on Steam. It takes about as long as you can stand.</p>
+      </div>
+    </header>
+    <div class="cs-links" data-reveal><a href="https://store.steampowered.com/app/4895890/" rel=noopener><span>Steam</span><b>Forest Quest ’88 <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></b></a><a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel=noopener><span>Studio</span><b>More ShangkoStudio games <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></b></a><a href="/start"><span>Questions</span><b>Talk to me about it <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></b></a></div>
+  </div>
+</section>
+<a class="next" href="/work/clutch">
+  <div class="next__img" aria-hidden="true"><img src="/assets/work/clutch/home-1440.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></div>
+  <div class="wrap next__inner">
+    <span class="label">Next case study</span>
+    <h2>Clutch <svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h42M34 3l10 9-10 9"/></svg></h2>
+    <p>Back to the start: an open-source clip recorder that stays out of the game’s way.</p>
+  </div>
+</a>
+</main>
+
+<footer class="foot">
+  <div class="wrap wrap--wide">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a class="brand" href="/" aria-label="Kofi Shang, home">
+          <img src="/logo-white.png" alt="" width="30" height="30">
+          <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+        </a>
+        <p>Software engineer and independent game developer, building products and games under Shangko Co from Pennsylvania.</p>
+      </div>
+      <nav class="foot__col" aria-labelledby="f-site">
+        <h2 id="f-site">Site</h2>
+        <a href="/">Home</a>
+        <a href="/work">Work</a>
+        <a href="/games">Games</a>
+        <a href="/about">About</a>
+        <a href="/start">Contact</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-work">
+        <h2 id="f-work">Case studies</h2>
+        <a href="/work/clutch">Clutch</a>
+        <a href="/work/juicicora">Juicicora</a>
+        <a href="/work/i-cant-see-you">I Can't See You</a>
+        <a href="/work/forest-quest-88">Forest Quest '88</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-else">
+        <h2 id="f-else">Elsewhere</h2>
+        <a href="https://github.com/KofiFS" rel="noopener">GitHub <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="mailto:kofifshang@gmail.com">Email</a>
+      </nav>
+    </div>
+    <svg class="foot__word" viewBox="0 0 1000 180" aria-hidden="true" focusable="false"><text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">Kofi Shang</text></svg>
+    <div class="foot__bar">
+      <span>© <span data-year>2026</span> Kofi Shang · Shangko Co</span>
+      <span>Built by hand: no framework, no build step.</span>
+      <a href="#main">Back to top <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

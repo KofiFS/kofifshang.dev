@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kofi Shang — Clutch and Juicicora</title>
-<meta name="description" content="Kofi Shang builds Clutch, a free open-source game clip recorder for Windows, and Juicicora, a cosy four-player co-op adventure. Plus ten released games on Steam.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kofi Shang — Software engineer and game developer</title>
+<meta name="description" content="Kofi Shang is a software engineer and independent game developer. He builds Clutch, a free open-source clip recorder for Windows, and Juicicora, a co-op adventure in Unreal Engine, with nine games already on Steam.">
+<link rel="canonical" href="https://kofifshang.dev/">
 <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
-<link rel="canonical" href="https://kofifshang.dev/">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kofi Shang">
-<meta property="og:title" content="Kofi Shang — Clutch and Juicicora">
-<meta property="og:description" content="Clutch, a free open-source clip recorder, is out now. Juicicora, a cosy four-player co-op adventure, is in development.">
+<meta property="og:title" content="Kofi Shang — Software engineer and game developer">
+<meta property="og:description" content="Kofi Shang is a software engineer and independent game developer. He builds Clutch, a free open-source clip recorder for Windows, and Juicicora, a co-op adventure in Unreal Engine, with nine games already on Steam.">
 <meta property="og:url" content="https://kofifshang.dev/">
-<meta property="og:image" content="https://kofifshang.dev/assets/clutch-shot.jpg">
-<meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0A0A0C">
+<meta property="og:image" content="https://kofifshang.dev/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Zen+Old+Mincho:wght@400;700&amp;display=swap">
 <link rel="stylesheet" href="/styles.css">
-
+<script src="/site.js" defer></script>
+<link rel="preload" as="image" href="/assets/work/clutch/home-960.webp" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,8 +36,19 @@
   "email": "mailto:kofifshang@gmail.com",
   "url": "https://kofifshang.dev/",
   "image": "https://kofifshang.dev/assets/portrait.jpg",
-  "worksFor": { "@type": "Organization", "name": "Shangko Co" },
-  "address": { "@type": "PostalAddress", "addressRegion": "PA", "addressCountry": "US" },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Shangko Co"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Penn State"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "PA",
+    "addressCountry": "US"
+  },
   "sameAs": [
     "https://github.com/KofiFS",
     "https://www.linkedin.com/in/kofi-shang/",
@@ -48,318 +62,372 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
-  <div class="wrap nav__inner">
-    <a class="brand" href="#top" aria-label="Kofi Shang, Shangko Co">
-      <img src="/logo-white.png" alt="" width="32" height="32">
-      <span><b>Kofi Shang</b><span>Shangko Co</span></span>
+  <div class="wrap wrap--wide nav__inner">
+    <a class="brand" href="/" aria-label="Kofi Shang, home">
+      <img src="/logo-white.png" alt="" width="30" height="30">
+      <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
     </a>
-    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-    <nav class="nav__links" id="navLinks" aria-label="Primary">
-      <a href="#products">Products</a>
-      <a href="#games">Games</a>
-      <a href="#also">Other work</a>
-      <a href="#about">About</a>
-      <a class="btn btn--primary btn--sm" href="/start">Start a project</a>
+    <nav class="nav__links" aria-label="Primary">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a class="nav__link" href="/work">Work</a>
+      <a class="nav__link" href="/games">Games</a>
+      <a class="nav__link" href="/about">About</a>
+      <a class="btn btn--light btn--sm nav__cta" href="/start">Get in touch</a>
     </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
   </div>
 </header>
 
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links" aria-label="Menu">
+      <a href="/" style="--i:0">Home<span>01</span></a>
+      <a href="/work" style="--i:1">Work<span>02</span></a>
+      <a href="/games" style="--i:2">Games<span>03</span></a>
+      <a href="/about" style="--i:3">About<span>04</span></a>
+      <a href="/start" style="--i:4">Contact<span>05</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <div class="menu__social">
+      <a href="https://github.com/KofiFS" rel="noopener">GitHub</a>
+      <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam</a>
+      <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn</a>
+      <a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
+    </div>
+  </div>
+</div>
+
 <main id="main">
-<span id="top"></span>
 
 <!-- ============================ HERO ============================ -->
-<section class="hero">
-  <img class="hero__mark" src="/logo-white.png" alt="" aria-hidden="true">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__guides" aria-hidden="true"></div>
+  <div class="hero__light hero__light--a" aria-hidden="true"></div>
+  <div class="hero__light hero__light--b" aria-hidden="true"></div>
+
   <div class="wrap hero__inner">
-    <p class="kicker">Two products, built in the open</p>
-    <h1>Clutch and <em>Juicicora.</em></h1>
-    <p class="hero__lede">I'm Kofi Shang. Clutch is a free, open-source game clip recorder for Windows that you can simply tell what to clip. Juicicora is a cosy co-op adventure for up to four players, and the deepest thing I have ever built. Ten more games of mine are already on Steam.</p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download Clutch</a>
-      <a class="btn btn--ghost" href="https://store.steampowered.com/app/5087380/">Wishlist Juicicora</a>
+    <div class="hero__copy">
+      <p class="label" data-enter style="--i:0">Software engineer · Game developer · Founder of Shangko Co</p>
+      <h1 class="hero__name" id="hero-title" data-enter style="--i:1"><span>Kofi</span><span>Shang</span></h1>
+      <p class="hero__headline" data-enter style="--i:2">I build real products end to end: <em>Clutch</em>, a clip recorder for Windows, <em>Juicicora</em>, a co-op adventure in Unreal, and nine games already on Steam.</p>
+      <p class="hero__lede" data-enter style="--i:3">Ten years of backend and platform engineering inside other people’s production systems. Now the same discipline goes into work with my own name on it.</p>
+      <div class="btn-row" data-enter style="--i:4">
+        <a class="btn btn--primary" href="#work">Explore my work <svg class="btn__icon btn__icon--down" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+        <a class="btn btn--ghost" href="/start">Get in touch <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
     </div>
-    <div class="socials" style="margin-top:.5rem">
-      <a class="social" href="https://github.com/KofiFS"><b>GitHub</b> <span>@KofiFS</span></a>
-      <a class="social" href="https://store.steampowered.com/search/?publisher=ShangkoStudio"><b>Steam</b> <span>ShangkoStudio</span></a>
-      <a class="social" href="https://www.linkedin.com/in/kofi-shang/"><b>LinkedIn</b> <span>kofi-shang</span></a>
+
+    <div class="stage" aria-hidden="true">
+      <div class="stage__mark"><img src="/logo-white.png" alt="" width="320" height="320"></div>
+      <div class="stage__card stage__card--back" data-enter style="--i:3">
+        <img src="/assets/work/juicicora/home-960.webp" alt="" width="960" height="540" decoding="async">
+      </div>
+      <div class="stage__card stage__card--front" data-enter style="--i:2">
+        <img src="/assets/work/clutch/home-960.webp" alt="" width="960" height="540" fetchpriority="high">
+      </div>
+      <div class="stage__card stage__card--chip" data-enter style="--i:5">
+        <img src="/assets/games/i-cant-see-you.jpg" alt="" width="460" height="215" decoding="async">
+      </div>
+      <div class="stage__tag stage__tag--a" data-enter style="--i:6"><span class="pill pill--live"><span class="dot"></span>Clutch <span data-clutch-version>v0.1.8</span> · out now</span></div>
+      <div class="stage__tag stage__tag--b" data-enter style="--i:7"><span class="pill">Juicicora · Dec 2027</span></div>
     </div>
-    <div class="stats">
-      <div class="stat"><b>Clutch v0.1.6</b><span>Free and open source, out now</span></div>
-      <div class="stat"><b>Juicicora</b><span>In development, wishlist on Steam</span></div>
-      <div class="stat"><b>10 games</b><span>Already published on Steam</span></div>
-      <div class="stat"><b>10+ years</b><span>Professional software engineering</span></div>
+  </div>
+
+  <div class="wrap">
+    <dl class="ledger-strip" data-enter style="--i:6">
+      <div><dt>Clutch</dt><dd><span data-clutch-version>v0.1.8</span><small>Free and open source, out now</small></dd></div>
+      <div><dt>Juicicora</dt><dd>December 2027<small>Steam Early Access, wishlist now</small></dd></div>
+      <div><dt>On Steam</dt><dd>9 games<small>Released since 2020 as ShangkoStudio</small></dd></div>
+      <div><dt>Engineering</dt><dd>10+ years<small>Backend, data and platform work</small></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================ SELECTED WORK ============================ -->
+<section class="section" id="work" aria-labelledby="work-title">
+  <span id="products" aria-hidden="true"></span>
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">01</span><span class="label">Selected work</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="work-title">Two products I’m building right now.</h2>
+      <p>One you can download today. The other is the deepest systems work I have going.</p>
+      </div>
+    </header>
+
+    <article class="product" aria-labelledby="clutch-title" style="--tint:#26BBFF;--tint-lit:#7CD6FF;--tint-glow:rgba(38,187,255,.3)">
+      <div class="product__head">
+        <div class="product__title" data-reveal>
+          <p class="label label--tint">Desktop app · Out now</p>
+          <h3 id="clutch-title"><img src="/assets/clutch-icon.png" alt="" width="68" height="68" loading="lazy">Clutch</h3>
+          <p>The game clip recorder you can tell what to clip. Light like NVIDIA’s recorder, social like Medal, with no ads you can’t turn off.</p>
+        </div>
+        <dl class="meta" data-reveal style="--i:1">
+          <div><dt>Status</dt><dd>Out now · <span data-clutch-version>v0.1.8</span></dd></div>
+          <div><dt>Platform</dt><dd>Windows 10 and 11</dd></div>
+          <div><dt>Stack</dt><dd>Electron, React, TypeScript, FFmpeg</dd></div>
+          <div><dt>License</dt><dd>GPL-3.0, free</dd></div>
+        </dl>
+      </div>
+
+      <div class="product__media glow-host" data-reveal="scale">
+        <div class="frame">
+          <img src="/assets/work/clutch/library-1440.webp" srcset="/assets/work/clutch/library-960.webp 960w, /assets/work/clutch/library-1440.webp 1440w" sizes="(max-width: 1320px) 100vw, 1200px" alt="The Clutch clip library: clips sorted by game with hover previews, filters by trigger and a search bar" width="1440" height="810" loading="lazy" decoding="async">
+        </div>
+        <div class="product__callout product__callout--a callout"><b>Hype moments</b>Clips when your friends get loud. No AI.</div>
+        <div class="product__callout product__callout--b callout"><b>Medal, OBS and NVIDIA</b>Old clips read in place, nothing copied.</div>
+      </div>
+
+      <div class="trio">
+        <div data-reveal><span>01</span><h4>An always-on replay buffer</h4><p>One FFmpeg process encodes on the GPU into two-second segments. Saving a clip stitches them by stream copy, so it is instant and never re-encodes.</p></div>
+        <div data-reveal style="--i:1"><span>02</span><h4>Clips that make themselves</h4><p>Hype and conversation triggers run locally with no AI. If you want, describe what to keep in plain English and Clutch watches for it.</p></div>
+        <div data-reveal style="--i:2"><span>03</span><h4>Your library, not a new silo</h4><p>Existing Medal, OBS and NVIDIA clips show up where they already are. A 9:16 editor, Discord posting and scheduled YouTube uploads are built in.</p></div>
+      </div>
+
+      <div class="product__foot" data-reveal>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download for Windows <svg class="btn__icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg></a>
+          <a class="btn btn--ghost" href="/work/clutch">Read the case study <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+        <span class="label">8 tagged releases in its first 10 days</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="bleed" id="juicicora" aria-labelledby="juici-title" data-parallax style="--tint:#5EC8F2;--tint-lit:#9BE0FF">
+  <div class="bleed__img" aria-hidden="true">
+    <img src="/assets/work/juicicora/home-1600.webp" srcset="/assets/work/juicicora/home-960.webp 960w, /assets/work/juicicora/home-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="900" loading="lazy" decoding="async">
+  </div>
+  <div class="wrap bleed__content">
+    <div class="bleed__copy" data-reveal>
+      <p class="label label--tint">Game · Steam Early Access, December 2027</p>
+      <h3 id="juici-title">Juicicora</h3>
+      <p>A cosy co-op adventure. You are a Soul, a small, glossy, jelly-bodied creature on the island of Elyndor, squeezing fruit into powers and sailing out with friends to deal with whatever threatens home.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="https://store.steampowered.com/app/5087380/" rel="noopener">Wishlist on Steam <svg class="btn__icon btn__icon--out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/juicicora">Read the case study <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="bleed__side" data-reveal style="--i:1">
+      <ul class="ticks">
+        <li>Online co-op for up to five players</li>
+        <li>25 fruits, a juice press, and powers that mix or clash</li>
+        <li>20 villagers with their own hours, homes and stories</li>
+        <li>12 missions, two boss birds and a Challenge Mode</li>
+        <li>A 25-day month with four seasons and weather</li>
+      </ul>
+      <div class="tags"><span class="tag">Unreal Engine 5.6</span><span class="tag">C++</span><span class="tag">Replicated multiplayer</span><span class="tag">Steamworks</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============================ PRODUCTS ============================ -->
-<section class="section section--raised" id="products">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <p class="kicker">The main things</p>
-      <h2>Two products I am building right now.</h2>
-      <p>One is finished enough to download today. The other is the biggest thing I have taken on.</p>
-    </div>
-
-    <div class="products">
-
-      <article class="product reveal">
-        <div class="product__media">
-          <img src="/assets/clutch-shot.jpg" alt="The Clutch app showing the home screen, clip library and automatic clipping options" loading="lazy" width="800" height="500">
-        </div>
-        <div class="product__body">
-          <div class="product__top">
-            <img src="/assets/clutch-icon.png" alt="" width="44" height="44">
-            <span class="product__tag">Out now · free</span>
-            <span class="pill pill--live">v0.1.6</span>
-          </div>
-          <h3>Clutch</h3>
-          <p><b>The game clip recorder you can tell what to clip.</b> An always-on replay buffer that is light like NVIDIA's recorder and social like Medal, with no ads you cannot turn off. Describe what you want kept in plain English, or let it clip itself when you and your friends suddenly get loud. It reads your existing Medal, OBS and NVIDIA clips in place, so nothing is copied, moved or deleted.</p>
-          <ul class="feats">
-            <li>Clip hotkey saves the seconds before and after, adjustable mid-game</li>
-            <li>Automatic clipping on hype moments and conversation, no AI needed</li>
-            <li>Per-game profiles and automatic game detection</li>
-            <li>Built-in 9:16 editor for Shorts and TikTok</li>
-            <li>Posts to Discord, uploads to YouTube on a schedule</li>
-            <li>GPU encoding through NVENC, AMF and Quick Sync</li>
-          </ul>
-          <p class="product__meta">Electron, React and TypeScript · GPL-3.0 · Windows 10 and 11 · six releases in five days</p>
-          <div class="product__links">
-            <a class="btn btn--primary btn--sm" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download for Windows</a>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/KofiFS/clutch">Source on GitHub</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product product--flip reveal">
-        <div class="product__media">
-          <img src="/assets/juicicora-shot.jpg" alt="Juicicora gameplay: a small glossy creature on chalk cliffs under hand-painted trees" loading="lazy" width="1280" height="720">
-        </div>
-        <div class="product__body">
-          <div class="product__top">
-            <span class="product__tag">In development</span>
-            <span class="pill pill--wip">Early Access Dec 2027</span>
-          </div>
-          <h3>Juicicora</h3>
-          <p><b>A cosy co-op adventure for up to four players.</b> You are a small glossy creature exploring hand-painted meadows, chalk cliffs and floating islands, dashing and wall-jumping between them, running missions and mini-games, and mixing fruit power-ups at an alchemy table. Befriend the villagers, travel by portal, and collect outfits worth showing off.</p>
-          <ul class="feats">
-            <li>Four-player online co-op with missions and mini-games</li>
-            <li>Elemental enemies with counter rules, bosses and duels</li>
-            <li>A persistent world clock with day and night</li>
-            <li>Collectible cosmetics, emotes and fruit power-ups</li>
-            <li>Portals between hand-built worlds</li>
-            <li>Built on Unreal Engine 5.6 in C++</li>
-          </ul>
-          <p class="product__meta">Unreal Engine 5.6 · C++ · replicated multiplayer · the deepest systems work I have going</p>
-          <div class="product__links">
-            <a class="btn btn--primary btn--sm" href="https://store.steampowered.com/app/5087380/">Wishlist on Steam</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
+<div class="wrap" style="--tint-lit:#9BE0FF">
+  <div class="strip">
+    <figure data-reveal><div class="zoom"><img src="/assets/work/juicicora/press-1600.webp" srcset="/assets/work/juicicora/press-960.webp 960w, /assets/work/juicicora/press-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 40vw" alt="A Soul standing beside the stone juice press" width="1600" height="900" loading="lazy" decoding="async"></div><figcaption><b>The juice press</b><span>Fruit in, powers out</span></figcaption></figure>
+    <figure data-reveal style="--i:1"><div class="zoom"><img src="/assets/work/juicicora/souls-1600.webp" srcset="/assets/work/juicicora/souls-960.webp 960w, /assets/work/juicicora/souls-1600.webp 1600w" sizes="(max-width: 860px) 50vw, 30vw" alt="Souls gathered in the village square among pots and crates" width="1600" height="900" loading="lazy" decoding="async"></div><figcaption><b>Twenty souls</b><span>Each keeps their own day</span></figcaption></figure>
+    <figure data-reveal style="--i:2"><div class="zoom"><img src="/assets/work/juicicora/g-boat-1600.webp" srcset="/assets/work/juicicora/g-boat-960.webp 960w, /assets/work/juicicora/g-boat-1600.webp 1600w" sizes="(max-width: 860px) 50vw, 30vw" alt="A Soul rowing a small wooden boat across dark water" width="1600" height="900" loading="lazy" decoding="async"></div><figcaption><b>Sailing with Drip</b><span>Out to the Windward Spire</span></figcaption></figure>
   </div>
-</section>
+</div>
 
-<!-- ============================ RECENT LAUNCHES ============================ -->
-<section class="section" id="recent">
+<!-- ============================ ALSO SHIPPING ============================ -->
+<section class="section" id="recent" aria-labelledby="recent-title">
   <div class="wrap">
-    <div class="section__head reveal">
-      <p class="kicker">Also shipping</p>
-      <h2>Two games launched this month.</h2>
-    </div>
-    <div class="now">
-      <article class="card reveal">
-        <div class="card__top">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">02</span><span class="label">Also shipping</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="recent-title">Two launches this October.</h2>
+      <p>Both developed and published by me, nine days apart: one built on sound, the other on a green screen.</p>
+      </div>
+    </header>
+    <div class="duo">
+      <a class="panel panel--icsy" href="/work/i-cant-see-you" data-reveal>
+        <div class="panel__media"><img src="/assets/work/i-cant-see-you/header.webp" alt="I Can't See You key art: a robot with a head torch in a pitch-black corridor" width="1024" height="384" loading="lazy" decoding="async"></div>
+        <div class="panel__body">
+          <div class="panel__top"><p class="label label--tint">Launched 10 Oct 2026 · Early Access</p></div>
           <h3>I Can't See You</h3>
-          <span class="pill pill--new">Launched 10 Oct</span>
+          <p>A multiplayer shooter played in total darkness for two to eight players. Every footstep, reload, shot and spoken word gives your position away.</p>
+          <div class="panel__foot"><span class="label">Unreal Engine 5.5 · C++ · $5.99</span><span class="more">Case study <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
         </div>
-        <p>A multiplayer shooter played in total darkness, for two to eight players. Every footstep, reload, shot and spoken word gives your position away. Flashlights, flashbangs, tape recorders that replay sounds, and walkie talkies you can eavesdrop on.</p>
-        <p class="card__meta">Unreal Engine 5.5 · C++ · Steam networking with proximity voice · $5.99, Early Access</p>
-        <div class="card__links">
-          <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/5267160/">View on Steam</a>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__top">
+      </a>
+      <a class="panel panel--fq" href="/work/forest-quest-88" data-reveal style="--i:1">
+        <div class="panel__media"><img src="/assets/work/forest-quest-88/opening-960.webp" alt="Forest Quest '88 running: green CRT text describing a golf course in the forest, with five numbered choices" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="panel__body">
+          <div class="panel__top"><p class="label label--tint">Launched 1 Oct 2026</p></div>
           <h3>Forest Quest '88</h3>
-          <span class="pill pill--new">Launched 1 Oct</span>
+          <p>A deadpan comedy text adventure on a green CRT. You just want to get home to bed. There are 95 ways that goes wrong.</p>
+          <div class="panel__foot"><span class="label">Vite · Tauri · $1.99</span><span class="more">Case study <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
         </div>
-        <p>A deadpan comedy text adventure on a green CRT screen. You wake in a forest and just want to get home to bed, through a randomised journey with 95 endings. The narrator runs locally and offline, so it costs players nothing to run.</p>
-        <p class="card__meta">Vite and Tauri · a local model narrates, while all the jokes stay authored · $1.99</p>
-        <div class="card__links">
-          <a class="btn btn--ghost btn--sm" href="https://store.steampowered.com/app/4895890/">View on Steam</a>
-        </div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============================ GAMES ============================ -->
-<section class="section section--raised" id="games">
+<!-- ============================ CATALOGUE ============================ -->
+<section class="section" id="games" aria-labelledby="games-title">
   <div class="wrap">
-    <div class="section__head reveal">
-      <p class="kicker">The catalogue</p>
-      <h2>Ten games, published under ShangkoStudio.</h2>
-      <p>Everything below is on Steam, developed and published by me. The earliest shipped in 2020.</p>
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">03</span><span class="label">The catalogue</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="games-title">Nine games on Steam, and a tenth on the way.</h2>
+      <p>Developed and published as ShangkoStudio, starting with Slimey in 2020. Every title opens its Steam page.</p>
+      </div>
+    </header>
+    <div class="ledger">
+        <a class="ledger__row" href="https://store.steampowered.com/app/5087380/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/juicicora.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2027</span>
+          <span class="ledger__title">Juicicora</span>
+          <span class="ledger__genre">Co-op adventure</span>
+          <span class="ledger__price">Coming soon</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/5267160/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/i-cant-see-you.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2026</span>
+          <span class="ledger__title">I Can't See You</span>
+          <span class="ledger__genre">Multiplayer shooter</span>
+          <span class="ledger__price">$5.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/4895890/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/forest-quest-88.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2026</span>
+          <span class="ledger__title">Forest Quest '88</span>
+          <span class="ledger__genre">Comedy text adventure</span>
+          <span class="ledger__price">$1.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/3990550/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/light-force.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2026</span>
+          <span class="ledger__title">LIGHT FORCE</span>
+          <span class="ledger__genre">Arcade physics runner</span>
+          <span class="ledger__price">$4.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/2899880/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/monkey-see.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2026</span>
+          <span class="ledger__title">Monkey See, Monkey Doo, Monkey Kiss You</span>
+          <span class="ledger__genre">Co-op horror</span>
+          <span class="ledger__price">$7.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/2349060/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/tiny-mans-revenge.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2023</span>
+          <span class="ledger__title">Tiny Man's Revenge Remastered</span>
+          <span class="ledger__genre">Comedy adventure</span>
+          <span class="ledger__price">$19.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/2154710/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/elite-comet.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2022</span>
+          <span class="ledger__title">Elite Comet</span>
+          <span class="ledger__genre">Multiplayer space combat</span>
+          <span class="ledger__price">$0.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/2005490/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/meat-beating.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2022</span>
+          <span class="ledger__title">Meat Beating: The Second Coming</span>
+          <span class="ledger__genre">Comedy clicker</span>
+          <span class="ledger__price">$0.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/1748090/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/juicy-bois.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2021</span>
+          <span class="ledger__title">Juicy Bois: Conflict</span>
+          <span class="ledger__genre">Online party game</span>
+          <span class="ledger__price">$0.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
+        <a class="ledger__row" href="https://store.steampowered.com/app/1216560/" rel="noopener" data-reveal="fade">
+          <span class="ledger__thumb"><img src="/assets/games/slimey.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></span>
+          <span class="ledger__year">2020</span>
+          <span class="ledger__title">Slimey</span>
+          <span class="ledger__genre">Action platformer</span>
+          <span class="ledger__price">$0.99</span>
+          <svg class="ledger__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg>
+          <span class="sr-only">(opens on Steam)</span>
+        </a>
     </div>
-
-    <div class="games">
-
-      <a class="game reveal" href="https://store.steampowered.com/app/5267160/">
-        <img class="game__art" src="/assets/games/i-cant-see-you.jpg" alt="I Can't See You capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>I Can't See You</h3><span class="game__year">2026</span></div>
-          <p>Multiplayer shooting in the pitch dark, where sound is the only thing that finds you.</p>
-          <div class="game__foot"><span>Early Access</span><span>$5.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/4895890/">
-        <img class="game__art" src="/assets/games/forest-quest-88.jpg" alt="Forest Quest 88 capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Forest Quest '88</h3><span class="game__year">2026</span></div>
-          <p>A text adventure that lies to you, on a green CRT, with 95 ways to end badly.</p>
-          <div class="game__foot"><span>Comedy adventure</span><span>$1.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/3990550/">
-        <img class="game__art" src="/assets/games/light-force.jpg" alt="LIGHT FORCE capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>LIGHT FORCE</h3><span class="game__year">2026</span></div>
-          <p>An arcade physics runner built on one move: hold to charge, release to dash.</p>
-          <div class="game__foot"><span>Free demo available</span><span>$4.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/2899880/">
-        <img class="game__art" src="/assets/games/monkey-see.jpg" alt="Monkey See, Monkey Doo, Monkey Kiss You capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Monkey See, Monkey Doo, Monkey Kiss You</h3><span class="game__year">2026</span></div>
-          <p>First-person horror through a forest, chased by relentlessly amorous monkeys.</p>
-          <div class="game__foot"><span>Online co-op</span><span>$7.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/2349060/">
-        <img class="game__art" src="/assets/games/tiny-mans-revenge.jpg" alt="Tiny Man's Revenge Remastered capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Tiny Man's Revenge Remastered</h3><span class="game__year">2023</span></div>
-          <p>A shrunken billionaire robs a house to fund his beloved soup. Multiple endings.</p>
-          <div class="game__foot"><span>Soundtrack on Steam</span><span>$19.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/2154710/">
-        <img class="game__art" src="/assets/games/elite-comet.jpg" alt="Elite Comet capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Elite Comet</h3><span class="game__year">2022</span></div>
-          <p>Physics-driven space combat where mass and momentum decide every collision.</p>
-          <div class="game__foot"><span>Up to 10 players</span><span>$0.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/2005490/">
-        <img class="game__art" src="/assets/games/meat-beating.jpg" alt="Meat Beating: The Second Coming capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Meat Beating: The Second Coming</h3><span class="game__year">2022</span></div>
-          <p>A deadpan clicker with a robed man waiting to talk at you after every level.</p>
-          <div class="game__foot"><span>Comedy</span><span>$0.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/1748090/">
-        <img class="game__art" src="/assets/games/juicy-bois.jpg" alt="Juicy Bois: Conflict capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Juicy Bois: Conflict</h3><span class="game__year">2021</span></div>
-          <p>Gelatinous characters race for gem chests, head to head or together.</p>
-          <div class="game__foot"><span>16-player online</span><span>$0.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/1216560/">
-        <img class="game__art" src="/assets/games/slimey.jpg" alt="Slimey capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Slimey</h3><span class="game__year">2020</span></div>
-          <p>The first one out the door. An action platformer with versus and co-op.</p>
-          <div class="game__foot"><span>Where it started</span><span>$0.99</span></div>
-        </div>
-      </a>
-
-      <a class="game reveal" href="https://store.steampowered.com/app/5087380/">
-        <img class="game__art" src="/assets/games/juicicora.jpg" alt="Juicicora capsule art" loading="lazy" width="460" height="215">
-        <div class="game__body">
-          <div class="game__title"><h3>Juicicora</h3><span class="game__year">2027</span></div>
-          <p>A cosy four-player creature adventure across meadows and floating islands.</p>
-          <div class="game__foot"><span>Wishlist now</span><span>Coming soon</span></div>
-        </div>
-      </a>
-
+    <div class="ledger__foot">
+      <a class="more" href="/games">Browse them with filters <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <span class="label">Plus a free LIGHT FORCE demo and the Tiny Man’s Revenge soundtrack</span>
     </div>
   </div>
 </section>
 
-<!-- ============================ OTHER WORK ============================ -->
-<section class="section section--raised" id="also">
+<!-- ============================ TOOLS ============================ -->
+<section class="section" id="also" aria-labelledby="tools-title">
   <div class="wrap">
-    <div class="section__head reveal">
-      <p class="kicker">Other work</p>
-      <h2>Tools and systems I built for myself first.</h2>
-    </div>
-
-    <div class="rows reveal">
-      <div class="row">
-        <h3>D&amp;D Character Sheet</h3>
-        <p>An auto-saving fifth-edition sheet with the official rules built in, so it still reads at the table with no signal.</p>
-        <span class="row__tag"><a href="https://kofifs.github.io/DND/">Open it →</a></span>
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">04</span><span class="label">Tools</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="tools-title">Things I built for myself first.</h2>
+      <p>Smaller projects, each made because I needed it badly enough to write it.</p>
       </div>
-      <div class="row">
-        <h3>SysMon</h3>
-        <p>A dark, card-based replacement for Windows Task Manager showing real sensors: temperatures, fan speeds and power draw next to the usual graphs.</p>
-        <span class="row__tag">C# · .NET 10 · personal tool</span>
-      </div>
-      <div class="row">
-        <h3>Mirage</h3>
-        <p>A call copilot that stays invisible to screen sharing. It transcribes locally, works out who is speaking, and answers from your own notes.</p>
-        <span class="row__tag">Electron · local Whisper</span>
-      </div>
-      <div class="row">
-        <h3>Risk-first trading agent</h3>
-        <p>A paper-only bot whose risk engine is authoritative over the model: immutable limits, a daily-loss halt, and no code path that lets model output widen a limit.</p>
-        <span class="row__tag">Python · backtested</span>
-      </div>
+    </header>
+    <div class="index">
+      <div class="index__item" data-reveal><span class="index__num">01</span><h3>SysMon</h3><p>A dark, card-based replacement for Windows Task Manager that shows real sensors, temperatures, fan speeds and power draw, next to the usual graphs.</p><div class="index__foot"><span class="tag">C#</span><span class="tag">.NET 10</span><span class="tag">LibreHardwareMonitor</span></div></div>
+      <div class="index__item" data-reveal style="--i:1"><span class="index__num">02</span><h3>Mirage</h3><p>A call copilot that stays invisible to screen sharing. It transcribes locally, works out who is speaking, and answers from your own notes.</p><div class="index__foot"><span class="tag">Electron</span><span class="tag">Local Whisper</span></div></div>
+      <div class="index__item" data-reveal><span class="index__num">03</span><h3>D&amp;D Character Sheet</h3><p>An auto-saving fifth-edition sheet with the official rules built in, so it still works at the table with no signal.</p><div class="index__foot"><a class="more more--out" href="https://kofifs.github.io/DND/" rel="noopener">Open it <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a></div></div>
+      <div class="index__item" data-reveal style="--i:1"><span class="index__num">04</span><h3>Risk-first trading agent</h3><p>A paper-only bot whose risk engine outranks the model: immutable limits, a daily-loss halt, and no code path that lets model output widen a limit.</p><div class="index__foot"><span class="tag">Python</span><span class="tag">Backtested</span><span class="tag">Paper only</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- ============================ ABOUT ============================ -->
-<section class="section" id="about">
-  <div class="wrap about">
-    <img class="reveal" src="/assets/portrait.jpg" alt="Kofi Shang" width="220" height="220">
-    <div class="reveal">
-      <p class="kicker" style="margin-bottom:1rem">About</p>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1rem">Ten years of other people's production systems, and my own studio.</h2>
-      <p>I have spent a decade building backend services, data pipelines and platform software on contract: security access control, payment processing, energy analytics, real-time spatial systems, and federal statistical work as a subcontractor to the U.S. Census Bureau.</p>
-      <p>Shangko Co is where that discipline goes into things with my own name on them. Ten games on Steam, a clip recorder people actually install, and a handful of tools I needed badly enough to write.</p>
-      <p>M.S. Software Engineering, Penn State. Based in Pennsylvania, working remote.</p>
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap intro">
+    <figure class="portrait" data-reveal="scale">
+      <img src="/assets/portrait.jpg" alt="Portrait of Kofi Shang in round glasses and a grey suit" width="400" height="400" loading="lazy" decoding="async">
+      <figcaption><span class="pill">Pennsylvania · remote</span></figcaption>
+    </figure>
+    <div class="intro__body">
+      <div class="shead__rail" data-reveal="fade" style="border-top:0;padding-top:0;flex-direction:row;gap:1rem"><span class="shead__num" style="padding-top:0">05</span><span class="label">About</span></div>
+      <h2 class="intro__quote" id="about-title" data-reveal>Ten years inside other people’s production systems, and a studio of my <em>own</em>.</h2>
+      <p data-reveal style="--i:1">I’ve spent a decade building backend services, data pipelines and platform software on contract: security access control, payment processing, energy analytics, real-time spatial systems, and federal statistical work as a subcontractor to the U.S. Census Bureau. I hold an M.S. in Software Engineering from Penn State.</p>
+      <div class="btn-row" data-reveal style="--i:2">
+        <a class="btn btn--ghost" href="/about">More about me <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="more more--out" href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a class="more more--out" href="https://github.com/KofiFS" rel="noopener">GitHub <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ CONTACT ============================ -->
-<section class="section section--raised" id="contact">
-  <div class="wrap contact">
-    <div class="reveal">
-      <p class="kicker" style="margin-bottom:1rem">Work with me</p>
-      <h2>Tell me what you are building.</h2>
-      <p style="color:var(--t2);margin-top:1rem;max-width:34rem">I take on contract engineering, game development and release work, and AI products that have to hold up with real users. Send a paragraph about the problem and I will tell you honestly whether I am the right person for it.</p>
-    </div>
-    <div class="contact__card reveal">
-      <a class="btn btn--primary" href="/start">Start a project</a>
-      <a class="contact__email" href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
-      <p style="font-size:.8125rem;color:var(--t3)">Remote, United States. I read every enquiry myself and reply within two business days.</p>
+
+<section class="cta" id="contact" aria-labelledby="cta-title">
+  <img class="cta__mark" src="/logo-white.png" alt="" aria-hidden="true" width="320" height="320" loading="lazy">
+  <div class="wrap">
+    <div class="cta__inner">
+      <p class="label label--tint" data-reveal>Work with me</p>
+      <h2 id="cta-title" data-reveal style="--i:1">Tell me what you’re <em>building.</em></h2>
+      <p data-reveal style="--i:2">I take on contract engineering, game development and release work, and AI products that have to hold up with real users. Send a paragraph about the problem and I’ll tell you honestly whether I’m the right person for it.</p>
+      <div class="cta__row" data-reveal style="--i:3">
+        <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <div class="copy"><a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a><button type="button" data-copy="kofifshang@gmail.com" aria-label="Copy email address"><svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="7.5" height="7.5" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg><span>Copy</span></button></div>
+      </div>
+      <p class="cta__note" data-reveal style="--i:4">I read every enquiry myself and reply within two business days.</p>
     </div>
   </div>
 </section>
@@ -367,45 +435,46 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__inner">
-    <div class="foot__left">
-      <img src="/logo-white.png" alt="" aria-hidden="true" width="22" height="22">
-      <small>Shangko Co · Pennsylvania</small>
+  <div class="wrap wrap--wide">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a class="brand" href="/" aria-label="Kofi Shang, home">
+          <img src="/logo-white.png" alt="" width="30" height="30">
+          <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+        </a>
+        <p>Software engineer and independent game developer, building products and games under Shangko Co from Pennsylvania.</p>
+      </div>
+      <nav class="foot__col" aria-labelledby="f-site">
+        <h2 id="f-site">Site</h2>
+        <a href="/">Home</a>
+        <a href="/work">Work</a>
+        <a href="/games">Games</a>
+        <a href="/about">About</a>
+        <a href="/start">Contact</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-work">
+        <h2 id="f-work">Case studies</h2>
+        <a href="/work/clutch">Clutch</a>
+        <a href="/work/juicicora">Juicicora</a>
+        <a href="/work/i-cant-see-you">I Can't See You</a>
+        <a href="/work/forest-quest-88">Forest Quest '88</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-else">
+        <h2 id="f-else">Elsewhere</h2>
+        <a href="https://github.com/KofiFS" rel="noopener">GitHub <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="mailto:kofifshang@gmail.com">Email</a>
+      </nav>
     </div>
-    <div class="socials">
-      <a class="social" href="https://github.com/KofiFS"><b>GitHub</b></a>
-      <a class="social" href="https://store.steampowered.com/search/?publisher=ShangkoStudio"><b>Steam</b></a>
-      <a class="social" href="https://www.linkedin.com/in/kofi-shang/"><b>LinkedIn</b></a>
+    <svg class="foot__word" viewBox="0 0 1000 180" aria-hidden="true" focusable="false"><text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">Kofi Shang</text></svg>
+    <div class="foot__bar">
+      <span>© <span data-year>2026</span> Kofi Shang · Shangko Co</span>
+      <span>Built by hand: no framework, no build step.</span>
+      <a href="#main">Back to top <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></a>
     </div>
-    <small>© 2026 Kofi Shang. All rights reserved.</small>
   </div>
 </footer>
-
-<script>
-  (function () {
-    var toggle = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
-    });
-
-    var items = document.querySelectorAll('.reveal');
-    if (!window.IntersectionObserver || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      items.forEach(function (el) { el.classList.add('in'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    items.forEach(function (el) { io.observe(el); });
-  })();
-</script>
 
 </body>
 </html>

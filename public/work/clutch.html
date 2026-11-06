@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clutch case study — Kofi Shang</title>
+<meta name="description" content="How Kofi Shang built Clutch, a free open-source game clip recorder for Windows: GPU capture into a ring buffer, instant saves by stream copy, and clipping triggers that need no AI.">
+<link rel="canonical" href="https://kofifshang.dev/work/clutch">
+<link rel="icon" href="/assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="180x180">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kofi Shang">
+<meta property="og:title" content="Clutch case study — Kofi Shang">
+<meta property="og:description" content="How Kofi Shang built Clutch, a free open-source game clip recorder for Windows: GPU capture into a ring buffer, instant saves by stream copy, and clipping triggers that need no AI.">
+<meta property="og:url" content="https://kofifshang.dev/work/clutch">
+<meta property="og:image" content="https://kofifshang.dev/assets/work/clutch/home-1440.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Zen+Old+Mincho:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer></script>
+<style>:root{--tint:#26BBFF;--tint-lit:#7CD6FF;--tint-glow:rgba(38,187,255,.3)}</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap wrap--wide nav__inner">
+    <a class="brand" href="/" aria-label="Kofi Shang, home">
+      <img src="/logo-white.png" alt="" width="30" height="30">
+      <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a class="nav__link" href="/work" aria-current="page">Work</a>
+      <a class="nav__link" href="/games">Games</a>
+      <a class="nav__link" href="/about">About</a>
+      <a class="btn btn--light btn--sm nav__cta" href="/start">Get in touch</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links" aria-label="Menu">
+      <a href="/" style="--i:0">Home<span>01</span></a>
+      <a href="/work" aria-current="page" style="--i:1">Work<span>02</span></a>
+      <a href="/games" style="--i:2">Games<span>03</span></a>
+      <a href="/about" style="--i:3">About<span>04</span></a>
+      <a href="/start" style="--i:4">Contact<span>05</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--primary" href="/start">Start a project <svg class="btn__icon btn__icon--right" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    <div class="menu__social">
+      <a href="https://github.com/KofiFS" rel="noopener">GitHub</a>
+      <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam</a>
+      <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn</a>
+      <a href="mailto:kofifshang@gmail.com">kofifshang@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="cs-hero">
+  <div class="hero__guides" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb" data-reveal="fade"><a href="/work">Work</a><span aria-hidden="true">/</span><span aria-current="page">Clutch</span></nav>
+    <div class="cs-hero__grid">
+      <div class="cs-hero__title">
+        <p class="label label--tint" data-reveal="fade">Desktop app · Out now</p>
+        <h1 data-reveal>Clutch</h1>
+        <p class="cs-hero__lede" data-reveal style="--i:1">The game clip recorder you can tell what to clip. Free and open source, for Windows.</p>
+        <div class="btn-row" data-reveal style="--i:2"><a class="btn btn--primary" href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe">Download for Windows <svg class="btn__icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg></a><a class="btn btn--ghost" href="https://github.com/KofiFS/clutch" rel="noopener">Source on GitHub <svg class="btn__icon btn__icon--out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a></div>
+      </div>
+      <div class="cs-hero__side" data-reveal style="--i:2">
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Design, engineering and release. Sole maintainer</dd></div>
+          <div><dt>Status</dt><dd>Out now · <span data-clutch-version>v0.1.8</span></dd></div>
+          <div><dt>Platform</dt><dd>Windows 10 and 11</dd></div>
+          <div><dt>License</dt><dd>GPL-3.0</dd></div>
+        </dl>
+        <div class="tags"><span class="tag">Electron 37</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS 4</span><span class="tag">electron-vite</span><span class="tag">FFmpeg</span><span class="tag">electron-updater</span><span class="tag">Node.js</span></div>
+      </div>
+    </div>
+    <figure class="cs-media" data-reveal="scale">
+      <div class="frame frame--glow glow-host">
+        <video data-autoplay muted loop playsinline preload="none" poster="/assets/work/clutch/library-1440.webp" width="1280" height="720" aria-label="Clutch tour: the clip library, the player and the 9:16 editor">
+          <source src="/assets/work/clutch/tour.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption class="cs-media__cap">
+        <span>From the one-minute tour: the library, the player and the 9:16 editor.</span>
+        <span style="display:flex;gap:1.25rem;align-items:center">
+          <button type="button" data-video-toggle hidden><svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg><span>Play the tour</span></button>
+          <a href="https://github.com/KofiFS/clutch/blob/main/docs/media/clutch-demo.mp4" rel="noopener">Full tour on GitHub</a>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-overview">
+  <div class="wrap cs-block">
+    <div class="cs-block__rail" data-reveal="fade"><span class="shead__num">01</span><span class="label">Overview</span></div>
+    <div class="cs-block__body">
+      <h2 id="cs-overview" data-reveal>Medal is social. NVIDIA’s recorder is light. Clutch sets out to be both.</h2>
+      
+      <div class="cs-prose" data-reveal style="--i:1">
+        <p>It sits in the tray running an always-on replay buffer. Press the hotkey and it keeps the last few seconds plus a few after, and you can change that length mid-game. Or press nothing: it can clip when you and your friends suddenly get loud, keep every stretch of conversation, or, with an optional AI step, watch for whatever you describe in plain English, like <em>“my kills and goals, never menus”</em>.</p>
+        <p>Around that sits everything that makes clips worth keeping: a library with hover previews, search and tags, a viewer with trim handles, a 9:16 / 1:1 / 16:9 editor for Shorts and TikTok, Discord posting through a webhook, and YouTube uploads now or on a schedule.</p>
+        <p><strong>Everything that runs on your PC is free, with no limits.</strong> An optional account adds cloud share links and storage, and an optional Pro tier pays for that cloud. Sponsored cards can be switched off in one place and never appear in game.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" aria-label="Clutch by the numbers">
+  <div class="wrap">
+    <div data-reveal><div class="numbers"><div><b>0.8%</b><span>CPU for the whole Clutch app, all five processes</span></div><div><b>0.7%</b><span>CPU for the FFmpeg recording process</span></div><div><b>2 s</b><span>Segment length in the replay ring buffer</span></div><div><b>8</b><span>Tagged releases in the first ten days</span></div></div><p class="cs-media__cap" style="margin-top:.75rem"><span>Reference run from the README, measured with the bundled benchmark script: RTX 5090, 32 threads, 5120×1440 at 60 fps, main window open, plus a Discord-only audio track.</span></p></div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-features">
+  <div class="wrap cs-block">
+    <div class="cs-block__rail" data-reveal="fade"><span class="shead__num">02</span><span class="label">Features</span></div>
+    <div class="cs-block__body">
+      <h2 id="cs-features" data-reveal>What it does.</h2>
+      <div class="feats"><div data-reveal style="--i:0"><span>01</span><h3>Replay buffer and hotkeys</h3><p>Save the seconds before and after with one key. Alt+PageUp / PageDown change the length in game, and extra hotkeys can have their own lengths.</p></div><div data-reveal style="--i:1"><span>02</span><h3>Clips that make themselves</h3><p>Hype moments and conversation triggers, both with no AI. Game detection starts recording on launch and tags each clip with the game’s icon.</p></div><div data-reveal style="--i:2"><span>03</span><h3>Bring your old library</h3><p>Medal, OBS, NVIDIA or any folder shows up next to Clutch’s own clips, read where it already is. Nothing is copied, moved or deleted.</p></div><div data-reveal style="--i:0"><span>04</span><h3>An editor for vertical video</h3><p>Crops to 9:16, 1:1 or 16:9 with speed, volume, captions and joining clips, plus a viewer with drag-to-scrub and trim handles.</p></div><div data-reveal style="--i:1"><span>05</span><h3>Sharing built in</h3><p>Discord posting with automatically shrunk copies that play inline, YouTube uploads now or scheduled, and share links anyone can open.</p></div><div data-reveal style="--i:2"><span>06</span><h3>Audio like OBS, made simple</h3><p>Several mics or virtual cables plus game audio, each with its own volume, and optional separate tracks in every clip.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-eng">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">03</span><span class="label">Engineering</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="cs-eng">The decisions that matter.</h2>
+      <p>A recorder has one job it must never fail at: stay out of the way of the game. Most of the interesting work follows from that.</p>
+      </div>
+    </header>
+    
+      <div class="pipe" data-reveal role="img" aria-label="Capture pipeline: screen, microphones, system audio and one app's audio all feed a single FFmpeg process, which writes two-second MPEG-TS segments into a ring buffer. Saving stitches segments with stream copy.">
+        <div class="pipe__col">
+          <div class="pipe__node"><b>Screen</b>ddagrab, stays on the GPU</div>
+          <div class="pipe__node"><b>Mics and virtual cables</b>dshow</div>
+          <div class="pipe__node"><b>System audio</b>WASAPI loopback</div>
+          <div class="pipe__node"><b>One app, e.g. Discord</b>per-process loopback, own track</div>
+        </div>
+        <svg class="pipe__arrow" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h20M17 7l7 7-7 7"/></svg>
+        <div class="pipe__node pipe__node--core"><b>One FFmpeg process</b>GPU encode: NVENC, AMF or Quick Sync</div>
+        <svg class="pipe__arrow" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h20M17 7l7 7-7 7"/></svg>
+        <div class="pipe__col">
+          <div class="pipe__node"><b>Ring buffer</b>2-second MPEG-TS segments</div>
+          <div class="pipe__node"><b>Save a clip</b>stitch segments by stream copy: instant, no re-encode</div>
+        </div>
+        <p class="pipe__note">Track 1 is always the mix; separate tracks follow it and are named in the MP4. The optional AI step reads small frames from finished segments in a separate process.</p>
+      </div>
+    <div style="height:var(--s-7)"></div>
+    <div class="decisions">
+      <div class="decision" data-reveal><span class="decision__num">01</span><h3>Capture on the GPU, save without re-encoding</h3><div class="decision__body"><p>Frames go from screen to encoder without leaving the GPU. Screen, microphones, system audio and a single app’s audio all go into <strong>one FFmpeg process</strong> that writes two-second MPEG-TS segments into a ring buffer.</p><p>Saving a clip stitches the segments it needs by stream copy, so a save is instant and costs nothing extra while you play. On screens wider than 4096 px, Clutch picks HEVC or AV1 automatically.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">02</span><h3>Background work never competes with the game</h3><div class="decision__body"><p>Exports, Discord copies, thumbnails, text reading and game detection all run <strong>below normal priority</strong>. Only the live recording stays at normal, so it never drops frames.</p><p>The same rule covers updates: Clutch updates itself from GitHub releases, and it never restarts in the middle of a game.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">03</span><h3>AI is optional, and asked only when something happens</h3><div class="decision__body"><p>For “watch the screen” you describe what to clip in plain English. Clutch watches locally for big changes on screen and loud moments, and <strong>only then</strong> asks the model whether the moment matches your rules. Calm stretches cost nothing.</p><p>It runs on your own Anthropic API key or a Clutch account, and nothing is sent while the feature is off.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">04</span><h3>Import nothing, read everything</h3><div class="decision__body"><p>People switching from Medal have years of clips. Instead of a migration, Clutch reads existing libraries <strong>in place</strong> and shows them in the same library, with nothing copied, moved or deleted.</p><p>It can also import settings from Medal or OBS, so switching takes minutes.</p></div></div>
+      <div class="decision" data-reveal><span class="decision__num">05</span><h3>Private by default</h3><div class="decision__body"><p>Clips are recorded and stored on your PC. Clutch talks to the network only for features you turn on: Discord, YouTube, share links, AI, and update checks against the GitHub repository. There is <strong>no telemetry</strong>.</p><p>The optional cloud server is small, has almost no dependencies, and can be self-hosted from Settings.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-gal">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">04</span><span class="label">Screens</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="cs-gal">Inside the app.</h2>
+      <p>Click any screen to see it larger.</p>
+      </div>
+    </header>
+    <div class="gallery"><button class="shot g-wide" type="button" data-full="/assets/work/clutch/home-1440.webp" data-caption="Home" data-reveal="scale"><img src="/assets/work/clutch/home-1440.webp" srcset="/assets/work/clutch/home-960.webp 960w, /assets/work/clutch/home-1440.webp 1440w" sizes="(max-width: 860px) 100vw, 50vw" alt="Clutch home screen: recording status, triggers, setup checklist and clip of the day" width="1440" height="810" loading="lazy" decoding="async"><span class="shot__cap pill">Home</span></button><button class="shot " type="button" data-full="/assets/work/clutch/editor-1440.webp" data-caption="9:16 editor" data-reveal="scale"><img src="/assets/work/clutch/editor-1440.webp" srcset="/assets/work/clutch/editor-960.webp 960w, /assets/work/clutch/editor-1440.webp 1440w" sizes="(max-width: 860px) 100vw, 50vw" alt="The 9:16 editor cropping a clip for vertical video" width="1440" height="810" loading="lazy" decoding="async"><span class="shot__cap pill">9:16 editor</span></button><button class="shot " type="button" data-full="/assets/work/clutch/player-1440.webp" data-caption="Player" data-reveal="scale"><img src="/assets/work/clutch/player-1440.webp" srcset="/assets/work/clutch/player-960.webp 960w, /assets/work/clutch/player-1440.webp 1440w" sizes="(max-width: 860px) 100vw, 50vw" alt="The clip player with details, tags and share actions" width="1440" height="810" loading="lazy" decoding="async"><span class="shot__cap pill">Player</span></button><button class="shot g-half" type="button" data-full="/assets/work/clutch/triggers-1440.webp" data-caption="Triggers, no AI" data-reveal="scale"><img src="/assets/work/clutch/triggers-1440.webp" srcset="/assets/work/clutch/triggers-960.webp 960w, /assets/work/clutch/triggers-1440.webp 1440w" sizes="(max-width: 860px) 100vw, 50vw" alt="What to clip: hype moments and conversation triggers with their thresholds" width="1440" height="810" loading="lazy" decoding="async"><span class="shot__cap pill">Triggers, no AI</span></button><button class="shot g-half" type="button" data-full="/assets/work/clutch/rules-1440.webp" data-caption="Plain-English rules" data-reveal="scale"><img src="/assets/work/clutch/rules-1440.webp" srcset="/assets/work/clutch/rules-960.webp 960w, /assets/work/clutch/rules-1440.webp 1440w" sizes="(max-width: 860px) 100vw, 50vw" alt="Watch the screen: plain-English rules for the optional AI step" width="1440" height="810" loading="lazy" decoding="async"><span class="shot__cap pill">Plain-English rules</span></button></div>
+  </div>
+</section>
+<section class="section" aria-labelledby="cs-links">
+  <div class="wrap">
+    
+    <header class="shead">
+      <div class="shead__rail" data-reveal="fade"><span class="shead__num">05</span><span class="label">Links</span></div>
+      <div class="shead__body" data-reveal>
+        <h2 id="cs-links">Try it.</h2>
+      <p>Windows 10 or 11. The installer needs no admin rights, and updates install themselves after that.</p>
+      </div>
+    </header>
+    <div class="cs-links" data-reveal><a href="https://github.com/KofiFS/clutch/releases/latest/download/Clutch-Setup.exe" rel=noopener><span>Download</span><b>Clutch for Windows <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></b></a><a href="https://github.com/KofiFS/clutch" rel=noopener><span>Source</span><b>GitHub repository <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></b></a><a href="https://github.com/KofiFS/clutch/releases" rel=noopener><span>History</span><b>All releases <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></b></a></div>
+  </div>
+</section>
+<a class="next" href="/work/juicicora">
+  <div class="next__img" aria-hidden="true"><img src="/assets/work/juicicora/g-square-1600.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></div>
+  <div class="wrap next__inner">
+    <span class="label">Next case study</span>
+    <h2>Juicicora <svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h42M34 3l10 9-10 9"/></svg></h2>
+    <p>A cosy co-op adventure in Unreal Engine 5.6, and the deepest systems work I have going.</p>
+  </div>
+</a>
+</main>
+
+<footer class="foot">
+  <div class="wrap wrap--wide">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a class="brand" href="/" aria-label="Kofi Shang, home">
+          <img src="/logo-white.png" alt="" width="30" height="30">
+          <span class="brand__name"><b>Kofi Shang</b><span>Shangko Co</span></span>
+        </a>
+        <p>Software engineer and independent game developer, building products and games under Shangko Co from Pennsylvania.</p>
+      </div>
+      <nav class="foot__col" aria-labelledby="f-site">
+        <h2 id="f-site">Site</h2>
+        <a href="/">Home</a>
+        <a href="/work">Work</a>
+        <a href="/games">Games</a>
+        <a href="/about">About</a>
+        <a href="/start">Contact</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-work">
+        <h2 id="f-work">Case studies</h2>
+        <a href="/work/clutch">Clutch</a>
+        <a href="/work/juicicora">Juicicora</a>
+        <a href="/work/i-cant-see-you">I Can't See You</a>
+        <a href="/work/forest-quest-88">Forest Quest '88</a>
+      </nav>
+      <nav class="foot__col" aria-labelledby="f-else">
+        <h2 id="f-else">Elsewhere</h2>
+        <a href="https://github.com/KofiFS" rel="noopener">GitHub <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://store.steampowered.com/search/?publisher=ShangkoStudio" rel="noopener">Steam <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/kofi-shang/" rel="noopener">LinkedIn <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6.5 5H11v4.5"/></svg></a>
+        <a href="mailto:kofifshang@gmail.com">Email</a>
+      </nav>
+    </div>
+    <svg class="foot__word" viewBox="0 0 1000 180" aria-hidden="true" focusable="false"><text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">Kofi Shang</text></svg>
+    <div class="foot__bar">
+      <span>© <span data-year>2026</span> Kofi Shang · Shangko Co</span>
+      <span>Built by hand: no framework, no build step.</span>
+      <a href="#main">Back to top <svg class="" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
